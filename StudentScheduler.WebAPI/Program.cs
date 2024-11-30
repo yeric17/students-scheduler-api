@@ -2,6 +2,7 @@
 
 using StudentScheduler.infrastructure;
 using StudentScheduler.Application;
+using StudentScheduler.Domain.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,7 @@ builder.Services
     .AddInfrastructureLayer(builder.Configuration)
     .AddApplicationLayer();
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -30,6 +32,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.MapIdentityApi<User>();
 
 app.MapControllers();
 

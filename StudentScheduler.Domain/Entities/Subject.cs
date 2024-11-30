@@ -10,6 +10,7 @@ namespace StudentScheduler.Domain.Entities
     public class Subject
     {
         [Key]
+        [StringLength(50)]
         public required string SubjectId { get; set; }
         public required string Name { get; set; }
         public required string Description { get; set; }
