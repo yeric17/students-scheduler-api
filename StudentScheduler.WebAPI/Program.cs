@@ -3,6 +3,7 @@
 using StudentScheduler.infrastructure;
 using StudentScheduler.Application;
 using StudentScheduler.Domain.Entities;
+using StudentScheduler.WebAPI.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,6 +33,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.MapGroup("/api/account").MapUsers();
 
 app.MapIdentityApi<User>();
 

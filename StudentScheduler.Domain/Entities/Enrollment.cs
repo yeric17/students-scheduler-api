@@ -10,7 +10,7 @@ namespace StudentScheduler.Domain.Entities
         public required string SubjectAssignmentId { get; set; }
         public required string StudentId { get; set; }
         
-        public required SubjectAssignment SubjectAssignment { get; set; }
-        public required User Student { get; set; }
+        public SubjectAssignment SubjectAssignment { get; set; }
+        public User Student { get; set; }
     }
 }
