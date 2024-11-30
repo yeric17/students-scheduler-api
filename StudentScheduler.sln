@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35521.163 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentScheduler.Domain", "StudentScheduler.Domain\StudentScheduler.Domain.csproj", "{8A319877-F7DE-4E45-B247-E84E5A4AB527}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentScheduler.infrastructure", "StudentScheduler.infrastructure\StudentScheduler.infrastructure.csproj", "{2C30E4E5-AAA4-4598-8B9C-9270CDC6F0A3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8A319877-F7DE-4E45-B247-E84E5A4AB527} = {8A319877-F7DE-4E45-B247-E84E5A4AB527}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentScheduler.Application", "StudentScheduler.Application\StudentScheduler.Application.csproj", "{CA44788A-8AA5-476A-8965-7C3520E79A79}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8A319877-F7DE-4E45-B247-E84E5A4AB527} = {8A319877-F7DE-4E45-B247-E84E5A4AB527}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentScheduler.WebAPI", "StudentScheduler.WebAPI\StudentScheduler.WebAPI.csproj", "{70695A75-3CA8-4E1A-9D99-036957890A25}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2C30E4E5-AAA4-4598-8B9C-9270CDC6F0A3} = {2C30E4E5-AAA4-4598-8B9C-9270CDC6F0A3}
+		{CA44788A-8AA5-476A-8965-7C3520E79A79} = {CA44788A-8AA5-476A-8965-7C3520E79A79}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A319877-F7DE-4E45-B247-E84E5A4AB527}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A319877-F7DE-4E45-B247-E84E5A4AB527}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A319877-F7DE-4E45-B247-E84E5A4AB527}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A319877-F7DE-4E45-B247-E84E5A4AB527}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C30E4E5-AAA4-4598-8B9C-9270CDC6F0A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C30E4E5-AAA4-4598-8B9C-9270CDC6F0A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C30E4E5-AAA4-4598-8B9C-9270CDC6F0A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C30E4E5-AAA4-4598-8B9C-9270CDC6F0A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA44788A-8AA5-476A-8965-7C3520E79A79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA44788A-8AA5-476A-8965-7C3520E79A79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA44788A-8AA5-476A-8965-7C3520E79A79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA44788A-8AA5-476A-8965-7C3520E79A79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70695A75-3CA8-4E1A-9D99-036957890A25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70695A75-3CA8-4E1A-9D99-036957890A25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70695A75-3CA8-4E1A-9D99-036957890A25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70695A75-3CA8-4E1A-9D99-036957890A25}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
