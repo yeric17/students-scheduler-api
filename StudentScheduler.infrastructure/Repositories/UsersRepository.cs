@@ -27,15 +27,45 @@ namespace StudentScheduler.infrastructure.Repositories
                 UserId = userId
             };
 
+            _dbContext.UserRoles.Add(userRole);
+
             try
             {
                 await _dbContext.SaveChangesAsync();
                 return Result.Success();
-			}
+            }
             catch (Exception e)
             {
                 Console.WriteLine(e);
-				return Result.Failure(UserErrors.AssignUserRoleFailure(userId,roleId));
+                return Result.Failure(UserErrors.AssignUserRoleFailure(userId, roleId));
+            }
+        }
+
+        public async Task<Result> UpdateUser(string userId, string? firstName, string? lastName)
+        {
+            var user = await _dbContext.Users.FindAsync(userId);
+
+            if (user == null)
+            {
+                return UserErrors.UserNotFound(userId);
+            }
+            if(!string.IsNullOrWhiteSpace(firstName))
+            {
+                user.FirstName = firstName;
+            }
+            if(!string.IsNullOrWhiteSpace(lastName))
+            {
+                user.LastName = lastName;
+            }
+            try
+            {
+                await _dbContext.SaveChangesAsync();
+                return Result.Success();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return UserErrors.UserConflict;
             }
         }
     }

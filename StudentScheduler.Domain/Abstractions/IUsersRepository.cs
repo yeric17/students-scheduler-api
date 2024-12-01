@@ -5,5 +5,6 @@ namespace StudentScheduler.Domain.Abstractions
     public interface IUsersRepository
     {
         Task<Result> AssignUserRole(string userId, string roleName);
-    }
+		Task<Result> UpdateUser(string userId, string? firstName, string? lastName);
+	}
 }

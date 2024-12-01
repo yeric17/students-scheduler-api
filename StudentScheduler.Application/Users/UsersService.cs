@@ -1,4 +1,5 @@
 ﻿
+using StudentScheduler.Application.Users.Requests;
 using StudentScheduler.Domain.Abstractions;
 using StudentScheduler.Share.Abstractions;
 
@@ -27,5 +28,15 @@ namespace StudentScheduler.Application.Users
 
             return Result.Success();
 		}
-    }
+
+		public async Task<Result> UpdateUser(UserUpdateRequest request)
+        {
+			return await _usersRepository.UpdateUser(request.UserId!, request.FirstName, request.LastName);
+		}
+
+        public Task<ResultValue<List<string>>> GetUserRoles(string userId)
+		{
+			return _rolesRepository.GetUserRoles(userId);
+		}
+	}
 }

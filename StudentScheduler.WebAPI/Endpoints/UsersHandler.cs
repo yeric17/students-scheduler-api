@@ -2,25 +2,30 @@
 using Microsoft.AspNetCore.Http.HttpResults;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using StudentScheduler.Domain.Entities;
 using StudentScheduler.Application.Users.Requests;
 using StudentScheduler.Application.Users;
+using StudentScheduler.WebAPI.Endpoints.Utilities;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace StudentScheduler.WebAPI.Endpoints
 {
     public static class UsersHandler
     {
         private static readonly EmailAddressAttribute _emailAddressAttribute = new();
+        
         public static RouteGroupBuilder MapUsers(this RouteGroupBuilder routes)
         {
 
             routes.MapPost("/register", Register);
-            return routes;
+            routes.MapPut("/update", Update);
+			return routes;
         }
 
-        public static async Task<IResult> Register([FromBody] RegisterRequestAddapted request, [FromServices] IServiceProvider serviceProvider)
+		
+		public static async Task<IResult> Register([FromBody] UserRegisterRequest request, [FromServices] IServiceProvider serviceProvider)
         {
             var userManager = serviceProvider.GetRequiredService<UserManager<User>>();
             var usersService = serviceProvider.GetRequiredService<IUsersService>();
@@ -66,10 +71,28 @@ namespace StudentScheduler.WebAPI.Endpoints
             }
 
 
-            return Results.Ok();
+            return Results.Created();
         }
+		[Authorize]
+		public static async Task<IResult> Update(IUsersService usersService, IHttpContextAccessor httpContextAccesor, UserUpdateRequest request)
+		{
+            var userId = httpContextAccesor.HttpContext.User.Claims.FirstOrDefault(x => x.Type == "userId").Value;
 
-        private static ValidationProblem CreateValidationProblem(string errorCode, string errorDescription) =>
+            if(userId is null)
+            {
+                return Results.Unauthorized();
+            }
+            request.UserId = userId;
+
+			var result = await usersService.UpdateUser(request);
+			if (result.IsFailure)
+			{
+				return ResponseManager.GetResponseErrorByResult(result);
+			}
+			return Results.Ok();
+		}
+
+		private static ValidationProblem CreateValidationProblem(string errorCode, string errorDescription) =>
         TypedResults.ValidationProblem(new Dictionary<string, string[]> {
             { errorCode, [errorDescription] }
         });

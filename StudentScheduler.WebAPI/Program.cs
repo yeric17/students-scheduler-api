@@ -5,6 +5,8 @@ using StudentScheduler.Application;
 using StudentScheduler.Domain.Entities;
 using StudentScheduler.WebAPI.Endpoints;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication;
+using StudentScheduler.WebAPI.Auth;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,10 +15,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddAuthorization();
 builder.Services.AddAuthentication()
     .AddBearerToken(IdentityConstants.BearerScheme);
+
+builder.Services.AddTransient<IClaimsTransformation, ClaimsTransformation>();
 
 builder.Services
     .AddInfrastructureLayer(builder.Configuration)
@@ -42,7 +47,7 @@ apiGroup.MapGroup("/account").MapUsers();
 apiGroup.MapGroup("/enrollments").MapEnrollment();
 apiGroup.MapGroup("/subjects").MapSubjects();
 
-app.MapIdentityApi<User>();
+apiGroup.MapIdentityApi<User>();
 
 app.MapControllers();
 

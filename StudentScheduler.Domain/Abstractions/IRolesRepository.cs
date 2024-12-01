@@ -7,5 +7,6 @@ namespace StudentScheduler.Domain.Abstractions
     public interface IRolesRepository
     {
         Task<ResultValue<IdentityRole>> GetRoleByName(string roleName);
-    }
+		Task<ResultValue<List<string>>> GetUserRoles(string userId);
+	}
 }

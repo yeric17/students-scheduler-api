@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentScheduler.Application.Users.Requests
 {
-    public record RegisterRequestAddapted
+    public record UserRegisterRequest
     {
         public required string Email { get; set; }
         public required string Password { get; set; }
