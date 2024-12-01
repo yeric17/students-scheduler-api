@@ -6,7 +6,7 @@ using StudentScheduler.Domain.Entities;
 using StudentScheduler.WebAPI.Endpoints;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication;
-using StudentScheduler.WebAPI.Auth;
+using StudentScheduler.infrastructure.Auth;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +28,9 @@ builder.Services
     .AddApplicationLayer();
 
 
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -36,6 +39,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+// Add policy
+
+
 
 app.UseHttpsRedirection();
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.Win32;
 using StudentScheduler.Application.Enrollment;
 using StudentScheduler.Application.Enrollment.Requests;
@@ -16,7 +17,8 @@ namespace StudentScheduler.WebAPI.Endpoints
 			return routes;
 		}
 
-		public static async Task<IResult> AddEnrollment(IEnrollmentServices enrollmentServices, EnrollmentAddRequest request)
+		[Authorize(Roles = "Student")]
+        public static async Task<IResult> AddEnrollment(IEnrollmentServices enrollmentServices, EnrollmentAddRequest request)
 		{
 			var result = await enrollmentServices.AddEnrollment(request.SubjectAssignmentId, request.StudentId);
 			if (result.IsFailure)

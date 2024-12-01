@@ -1,7 +1,9 @@
 ﻿
 using StudentScheduler.Application.Users.Requests;
+using StudentScheduler.Application.Users.Responses;
 using StudentScheduler.Domain.Abstractions;
 using StudentScheduler.Share.Abstractions;
+using StudentScheduler.Share.ErrorHandling;
 
 namespace StudentScheduler.Application.Users
 {
@@ -38,5 +40,26 @@ namespace StudentScheduler.Application.Users
 		{
 			return _rolesRepository.GetUserRoles(userId);
 		}
-	}
+
+        public async Task<ResultValue<UserGetResponse>> GetUserById(string userId)
+        {
+            var result = await _usersRepository.GetUserById(userId);
+
+            if (result.IsFailure)
+            {
+                return UserErrors.UserNotFound(userId);
+            }
+
+            var user = new UserGetResponse
+            {
+                UserId = userId,
+                FirstName = result.Value.FirstName,
+                LastName = result.Value.LastName,
+                Email = result.Value.Email ?? ""
+            };
+
+            return user;
+        }
+
+    }
 }

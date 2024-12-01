@@ -5,6 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using StudentScheduler.Domain.Abstractions;
 using StudentScheduler.Domain.Entities;
+using StudentScheduler.infrastructure.Abstractions;
+using StudentScheduler.infrastructure.Auth;
 using StudentScheduler.infrastructure.Data;
 using StudentScheduler.infrastructure.Repositories;
 
@@ -39,12 +41,15 @@ namespace StudentScheduler.infrastructure
         private static IServiceCollection SetupIdentity(this IServiceCollection services)
         {
             services.AddIdentityCore<User>()
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddApiEndpoints();
 
             services.Configure<IdentityOptions>(options => {
                 options.SignIn.RequireConfirmedEmail = false;
             });
+
+            services.AddTransient<IClaimsHelper, ClaimsHelper>();
             return services;
         }
         private static IServiceCollection AddDomainServices(this IServiceCollection services)

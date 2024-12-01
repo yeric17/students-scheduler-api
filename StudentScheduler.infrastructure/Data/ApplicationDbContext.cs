@@ -20,9 +20,6 @@ namespace StudentScheduler.infrastructure.Data
         public required DbSet<Subject> Subjects { get; set; }
         public required DbSet<SubjectAssignment> SubjectAssignments { get; set; }
         public required DbSet<Enrollment> Enrollments { get; set; }
-        public required DbSet<RolePermissions> RolePermissions { get; set; }
-
-        public required DbSet<Permission> Permissions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -38,10 +35,7 @@ namespace StudentScheduler.infrastructure.Data
 
             var subjects = SeedSubjects(modelBuilder);
             var roles = SeedRoles(modelBuilder);
-            var permissions = SeedPermissions(modelBuilder);
             var teachers = SeedTeachers(modelBuilder);
-
-            SeedRolePermissions(modelBuilder, roles, permissions);
             SeedTeacherRoles(modelBuilder, teachers, roles);
             SeedSubjectAssignments(modelBuilder, teachers, subjects);
         }
@@ -79,51 +73,7 @@ namespace StudentScheduler.infrastructure.Data
             modelBuilder.Entity<IdentityRole>().HasData(roles);
             return roles;
         }
-        private List<Permission> SeedPermissions(ModelBuilder modelBuilder)
-        {
-            List<Permission> permissions = new() {
-                new Permission { PermissionId = Guid.NewGuid().ToString(), PermissionName = "subjectAssignment:createOwn"},
-                new Permission { PermissionId = Guid.NewGuid().ToString(), PermissionName = "subjectAssignment:updateOwn"},
-                new Permission { PermissionId = Guid.NewGuid().ToString(), PermissionName = "subjectAssignment:readOwn"},
-                new Permission { PermissionId = Guid.NewGuid().ToString(), PermissionName = "subjectAssignment:deleteOwn"},
-                new Permission { PermissionId = Guid.NewGuid().ToString(), PermissionName = "enrollment:createOwn"},
-                new Permission { PermissionId = Guid.NewGuid().ToString(), PermissionName = "enrollment:deleteOwn"},
-                new Permission { PermissionId = Guid.NewGuid().ToString(), PermissionName = "enrollment:readOwn"},
-                new Permission { PermissionId = Guid.NewGuid().ToString(), PermissionName = "enrollment:updateOwn"},
-            };
-
-            modelBuilder.Entity<Permission>().HasData(permissions);
-
-            return permissions;
-        }
-
-        private void SeedRolePermissions(ModelBuilder modelBuilder, List<IdentityRole> roles, List<Permission> permissions)
-        {
-            List<RolePermissions> rolePermissions = new() {
-                // Admin
-                new RolePermissions { RolePermissionsId = Guid.NewGuid().ToString(), IdentityRoleId = roles[0].Id, PermissionId = permissions[0].PermissionId },
-                new RolePermissions { RolePermissionsId = Guid.NewGuid().ToString(), IdentityRoleId = roles[0].Id, PermissionId = permissions[1].PermissionId },
-                new RolePermissions { RolePermissionsId = Guid.NewGuid().ToString(), IdentityRoleId = roles[0].Id, PermissionId = permissions[2].PermissionId },
-                new RolePermissions { RolePermissionsId = Guid.NewGuid().ToString(), IdentityRoleId = roles[0].Id, PermissionId = permissions[3].PermissionId },
-                new RolePermissions { RolePermissionsId = Guid.NewGuid().ToString(), IdentityRoleId = roles[0].Id, PermissionId = permissions[4].PermissionId },
-                new RolePermissions { RolePermissionsId = Guid.NewGuid().ToString(), IdentityRoleId = roles[0].Id, PermissionId = permissions[5].PermissionId },
-                new RolePermissions { RolePermissionsId = Guid.NewGuid().ToString(), IdentityRoleId = roles[0].Id, PermissionId = permissions[6].PermissionId },
-                new RolePermissions { RolePermissionsId = Guid.NewGuid().ToString(), IdentityRoleId = roles[0].Id, PermissionId = permissions[7].PermissionId },
-                // Student
-                new RolePermissions { RolePermissionsId = Guid.NewGuid().ToString(), IdentityRoleId = roles[1].Id, PermissionId = permissions[4].PermissionId },
-                new RolePermissions { RolePermissionsId = Guid.NewGuid().ToString(), IdentityRoleId = roles[1].Id, PermissionId = permissions[5].PermissionId },
-                new RolePermissions { RolePermissionsId = Guid.NewGuid().ToString(), IdentityRoleId = roles[1].Id, PermissionId = permissions[6].PermissionId },
-                new RolePermissions { RolePermissionsId = Guid.NewGuid().ToString(), IdentityRoleId = roles[1].Id, PermissionId = permissions[7].PermissionId },
-                // Teacher
-                new RolePermissions { RolePermissionsId = Guid.NewGuid().ToString(), IdentityRoleId = roles[2].Id, PermissionId = permissions[0].PermissionId },
-                new RolePermissions { RolePermissionsId = Guid.NewGuid().ToString(), IdentityRoleId = roles[2].Id, PermissionId = permissions[1].PermissionId },
-                new RolePermissions { RolePermissionsId = Guid.NewGuid().ToString(), IdentityRoleId = roles[2].Id, PermissionId = permissions[2].PermissionId },
-                new RolePermissions { RolePermissionsId = Guid.NewGuid().ToString(), IdentityRoleId = roles[2].Id, PermissionId = permissions[3].PermissionId },
-
-            };
-
-            modelBuilder.Entity<RolePermissions>().HasData(rolePermissions);
-        }
+    
 
         private List<User> SeedTeachers(ModelBuilder modelBuilder)
         {

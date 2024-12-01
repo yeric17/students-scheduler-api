@@ -9,6 +9,7 @@ using StudentScheduler.Application.Users;
 using StudentScheduler.WebAPI.Endpoints.Utilities;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
+using StudentScheduler.infrastructure.Abstractions;
 
 namespace StudentScheduler.WebAPI.Endpoints
 {
@@ -21,11 +22,28 @@ namespace StudentScheduler.WebAPI.Endpoints
 
             routes.MapPost("/register", Register);
             routes.MapPut("/update", Update);
-			return routes;
+            routes.MapGet("/me", GetMe);
+            return routes;
         }
 
-		
-		public static async Task<IResult> Register([FromBody] UserRegisterRequest request, [FromServices] IServiceProvider serviceProvider)
+        [Authorize]
+        public static async Task<IResult> GetMe(IClaimsHelper claimsHelper, IUsersService usersService)
+        {
+            var userId = claimsHelper.GetUserId();
+            if (userId is null)
+            {
+                return Results.Unauthorized();
+            }
+            var result = await usersService.GetUserById(userId);
+            if (result.IsFailure)
+            {
+                return ResponseManager.GetResponseErrorByResult(result);
+            }
+            return Results.Ok(result.Value);
+        }
+
+
+        public static async Task<IResult> Register([FromBody] UserRegisterRequest request, [FromServices] IServiceProvider serviceProvider)
         {
             var userManager = serviceProvider.GetRequiredService<UserManager<User>>();
             var usersService = serviceProvider.GetRequiredService<IUsersService>();
@@ -74,9 +92,9 @@ namespace StudentScheduler.WebAPI.Endpoints
             return Results.Created();
         }
 		[Authorize]
-		public static async Task<IResult> Update(IUsersService usersService, IHttpContextAccessor httpContextAccesor, UserUpdateRequest request)
+		public static async Task<IResult> Update(IUsersService usersService, IClaimsHelper claimsHelper, UserUpdateRequest request)
 		{
-            var userId = httpContextAccesor.HttpContext.User.Claims.FirstOrDefault(x => x.Type == "userId").Value;
+            var userId = claimsHelper.GetUserId();
 
             if(userId is null)
             {

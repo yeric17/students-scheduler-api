@@ -1,4 +1,5 @@
-﻿using StudentScheduler.Share.Abstractions;
+﻿using StudentScheduler.Domain.Entities;
+using StudentScheduler.Share.Abstractions;
 
 namespace StudentScheduler.Domain.Abstractions
 {
@@ -6,5 +7,6 @@ namespace StudentScheduler.Domain.Abstractions
     {
         Task<Result> AssignUserRole(string userId, string roleName);
 		Task<Result> UpdateUser(string userId, string? firstName, string? lastName);
-	}
+        Task<ResultValue<User>> GetUserById(string userId);
+    }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using StudentScheduler.Domain.Abstractions;
+using StudentScheduler.Domain.Entities;
 using StudentScheduler.infrastructure.Abstractions;
 using StudentScheduler.infrastructure.Data;
 using StudentScheduler.Share.Abstractions;
@@ -67,6 +68,16 @@ namespace StudentScheduler.infrastructure.Repositories
                 Console.WriteLine(e);
                 return UserErrors.UserConflict;
             }
+        }
+
+        public async Task<ResultValue<User>> GetUserById(string userId)
+        {
+            var user = await _dbContext.Users.FindAsync(userId);
+            if (user == null)
+            {
+                return UserErrors.UserNotFound(userId);
+            }
+            return ResultValue<User>.Success(user);
         }
     }
 }
