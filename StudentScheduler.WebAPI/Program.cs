@@ -4,6 +4,7 @@ using StudentScheduler.infrastructure;
 using StudentScheduler.Application;
 using StudentScheduler.Domain.Entities;
 using StudentScheduler.WebAPI.Endpoints;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +15,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddAuthorization();
-builder.Services.AddAuthentication();
+builder.Services.AddAuthentication()
+    .AddBearerToken(IdentityConstants.BearerScheme);
 
 builder.Services
     .AddInfrastructureLayer(builder.Configuration)
