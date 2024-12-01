@@ -40,5 +40,40 @@ namespace StudentScheduler.Application.SubjectsAssignment
 
 			return subjectAssignmentResponses;
 		}
+
+		public async Task<ResultValue<List<SubjectAssigmentDetailGetResponse>>> GetSubjectsAssigmentDetail(string subjectAssigmentId)
+		{
+			var result = await _subjectAssignmentRepository.GetSubjectAssigmentDetail(subjectAssigmentId);
+
+			if (result.IsFailure)
+			{
+				return result.Error!;
+			}
+
+			var subjectAssignments = result.Value;
+
+			var response = subjectAssignments.Select(sa =>
+			{
+				var students = sa.Enrollments.Select(s =>
+				{
+					return new SubjectAssigmentStudent
+					{
+						FullName = $"{s.Student.FirstName} {s.Student.LastName}",
+						UserId = s.StudentId
+					};
+				}).ToList();
+				return new SubjectAssigmentDetailGetResponse
+				{
+					SubjectAssignmentId = sa.SubjectAssignmentId,
+					SubjectId = sa.Subject.SubjectId,
+					SubjectName = sa.Subject.Name,
+					TeacherId = sa.Teacher.Id,
+					TeacherName = $"{sa.Teacher.FirstName} {sa.Teacher.LastName}",
+					Students = students
+				};
+			}).ToList();
+
+			return response;
+		}
 	}
 }

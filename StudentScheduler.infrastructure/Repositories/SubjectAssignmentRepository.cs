@@ -81,11 +81,30 @@ namespace StudentScheduler.infrastructure.Repositories
 		{
 			var results = await _dbContext.Enrollments
 				.Include(e => e.SubjectAssignment)
-				.ThenInclude(sa => sa.Students)
+				.ThenInclude(sa => sa.Enrollments)
 				.Where(es => es.StudentId == studentId)
 				.AsSplitQuery()
 				.AsNoTracking()
 				.Select(es => es.SubjectAssignment)
+				.ToListAsync();
+
+			if (results is null)
+			{
+				return new List<SubjectAssignment>();
+			}
+			return results;
+		}
+
+		public async Task<ResultValue<List<SubjectAssignment>>> GetSubjectAssigmentDetail(string subjectAssignmentId)
+		{
+			var results = await _dbContext.SubjectAssignments
+				.Include(sa => sa.Teacher)
+				.Include(sa => sa.Subject)
+				.Include(sa => sa.Enrollments)
+				.ThenInclude(e => e.Student)
+				.Where(sa => sa.SubjectAssignmentId == subjectAssignmentId)
+				.AsSplitQuery()
+				.AsNoTracking()
 				.ToListAsync();
 
 			if (results is null)

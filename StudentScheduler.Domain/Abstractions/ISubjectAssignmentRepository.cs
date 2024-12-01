@@ -12,6 +12,7 @@ namespace StudentScheduler.Domain.Abstractions
 	{
 		Task<Result> AddSubjectAssignment(string subjectId, string teacherId);
 		Task<ResultValue<SubjectAssignment>> GetSubjectAssigmentById(string subjectAssignmentId);
+		Task<ResultValue<List<SubjectAssignment>>> GetSubjectAssigmentDetail(string subjectAssignmentId);
 		Task<ResultValue<List<SubjectAssignment>>> GetSubjectsAssigmentByStudentId(string studentId);
 		Task<ResultValue<List<SubjectAssignment>>> GetSubjectsAssignment();
 		Task<ResultValue<List<SubjectAssignment>>> GetSubjectsAssignmentByTeacherId(string teacherId);

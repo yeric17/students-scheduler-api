@@ -14,4 +14,15 @@ namespace StudentScheduler.Application.SubjectsAssignment.Responses
 		public required string TeacherId { get; set; }
 		public required string TeacherName { get; set; }
 	}
+
+	public class SubjectAssigmentDetailGetResponse : SubjectAssigmentGetResponse
+	{
+		public required List<SubjectAssigmentStudent> Students { get; set; }
+	}
+
+	public class SubjectAssigmentStudent
+	{
+		public required string UserId { get; set; }
+		public required string FullName { get; set; }
+	}
 }

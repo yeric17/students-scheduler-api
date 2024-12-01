@@ -13,7 +13,6 @@ namespace StudentScheduler.Domain.Entities
         public required string TeacherId { get; set; }
 
         public List<Enrollment> Enrollments { get; set; }
-        public List<User> Students { get; set; }
 	}
 
 }

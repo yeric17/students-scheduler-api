@@ -7,5 +7,6 @@ namespace StudentScheduler.Application.SubjectsAssignment
 	{
 		Task<Result> AddSubjectAssignment(string subjectId, string teacherId);
 		Task<ResultValue<List<SubjectAssigmentGetResponse>>> GetSubjectsAssigment();
+		Task<ResultValue<List<SubjectAssigmentDetailGetResponse>>> GetSubjectsAssigmentDetail(string subjectAssigmentId);
 	}
 }
