@@ -15,4 +15,8 @@
     <ProjectReference Include="..\StudentScheduler.Share\StudentScheduler.Share.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="SubjectsAssignment\Requests\" />
+  </ItemGroup>
+
 </Project>

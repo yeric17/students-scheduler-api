@@ -2,10 +2,10 @@
 {
 	public record Error
 	{
-		public string Code { get; private set; }
-		public string Message { get; private set; }
+		public string Code { get; init; }
+		public string Message { get; init; }
 
-		public ErrorType ErrorType { get; private set; }
+		public ErrorType ErrorType { get; init; }
 		protected Error(string code, string message, ErrorType errorType)
 		{
 			Code = code;
@@ -13,7 +13,6 @@
 			ErrorType = errorType;
 		}
 
-		public static readonly Error Empty = new(string.Empty, string.Empty, ErrorType.Empty);
 
 		public static Error Failure(string code, string description) =>
 			new(code, description, ErrorType.Failure);

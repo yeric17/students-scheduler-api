@@ -8,6 +8,8 @@ namespace StudentScheduler.WebAPI.Endpoints.Utilities
 	{
 		public static IResult GetResponseErrorByResult(Result result)
 		{
+			if(result.Error is null) return Results.Conflict("Error without description");
+
 			switch (result.Error.ErrorType)
 			{
 				case ErrorType.Empty:

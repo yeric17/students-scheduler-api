@@ -12,6 +12,8 @@ namespace StudentScheduler.Domain.Entities
         public required string SubjectId { get; set; }
         public required string TeacherId { get; set; }
 
-    }
+        public List<Enrollment> Enrollments { get; set; }
+        public List<User> Students { get; set; }
+	}
 
 }

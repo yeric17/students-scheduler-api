@@ -13,5 +13,7 @@ namespace StudentScheduler.Share.ErrorHandling
 		public static Error MaxSameTeacherAssigned(int max)  => Validation("EnrollmentErrors.StudentAlreadyAssignTeacher", $"Max assignet with the same teacher is {max}");
 
 		public static Error MaxEnrollmentReached(int max) => Validation("EnrollmentErrors.MaxEnrollmentReached", $"Max enrollment reached. Max is {max}");
+
+		public static readonly Error AlreadyEnrollment = Validation("EnrollmentErrors.AlreadyEnrollment", "The student already assigned for this subject");
 	}
 }

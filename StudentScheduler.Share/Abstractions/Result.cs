@@ -10,15 +10,17 @@ namespace StudentScheduler.Share.Abstractions
 	public class Result
 	{
 		public bool IsSuccess { get; private set; }
+
+		[JsonIgnore(Condition = JsonIgnoreCondition.Always)]
 		public bool IsFailure => !IsSuccess;
 
 
 		[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
-		public Error Error { get; protected set; }
+		public Error? Error { get; protected set; }
 		protected Result()
 		{
 			IsSuccess = true;
-			Error = Error.Empty;
+			Error = default;
 		}
 
 		protected Result(Error error)

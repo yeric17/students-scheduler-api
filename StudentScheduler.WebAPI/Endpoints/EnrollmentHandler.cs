@@ -12,7 +12,7 @@ namespace StudentScheduler.WebAPI.Endpoints
 		public static RouteGroupBuilder MapEnrollment(this RouteGroupBuilder routes)
 		{
 
-			routes.MapPost("/enrollments", AddEnrollment);
+			routes.MapPost("/", AddEnrollment);
 			return routes;
 		}
 

@@ -246,7 +246,9 @@ namespace StudentScheduler.infrastructure.Data
                 new SubjectAssignment { SubjectAssignmentId = Guid.NewGuid().ToString(), SubjectId = subjects[8].SubjectId, TeacherId = teachers[3].Id },
                 new SubjectAssignment { SubjectAssignmentId = Guid.NewGuid().ToString(), SubjectId = subjects[9].SubjectId, TeacherId = teachers[4].Id },
             };
-        }
+
+            modelBuilder.Entity<SubjectAssignment>().HasData(subjectAssignments);
+		}
         private void RenameIdentityTables(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>(b =>

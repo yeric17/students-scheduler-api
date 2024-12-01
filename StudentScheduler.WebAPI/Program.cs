@@ -34,10 +34,11 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.MapGroup("/api")
-    .MapGroup("/account").MapUsers()
-    .MapGroup("/enrollments").MapEnrollment();
+var apiGroup = app.MapGroup("/api");
 
+apiGroup.MapGroup("/account").MapUsers();
+apiGroup.MapGroup("/enrollments").MapEnrollment();
+apiGroup.MapGroup("/subjects").MapSubjects();
 
 app.MapIdentityApi<User>();
 

@@ -47,19 +47,19 @@ namespace StudentScheduler.infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "00d48d9f-d56d-470a-87f3-bdd1910198b5",
+                            Id = "53c0fc08-e0bf-4200-91a2-b594b4d004b8",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "37d9a3a7-6be1-4b94-b436-eefc727b65a8",
+                            Id = "e3968c6b-5ef3-492a-9cbc-7ac243b3c5b2",
                             Name = "Student",
                             NormalizedName = "STUDENT"
                         },
                         new
                         {
-                            Id = "7818b82f-1705-447a-ad16-bd121a63b733",
+                            Id = "9da522c0-4fd0-4ae7-8f80-8570c42cc9ee",
                             Name = "Teacher",
                             NormalizedName = "TEACHER"
                         });
@@ -150,28 +150,28 @@ namespace StudentScheduler.infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "f5408a62-9b5e-493e-85af-0df0b5d0c959",
-                            RoleId = "7818b82f-1705-447a-ad16-bd121a63b733"
+                            UserId = "18cd856b-9c30-4454-8b57-f951026436fe",
+                            RoleId = "9da522c0-4fd0-4ae7-8f80-8570c42cc9ee"
                         },
                         new
                         {
-                            UserId = "49d16cb8-4c86-4449-9638-addf87d0d24f",
-                            RoleId = "7818b82f-1705-447a-ad16-bd121a63b733"
+                            UserId = "b7a567b5-fa54-477b-a698-8839baf876bb",
+                            RoleId = "9da522c0-4fd0-4ae7-8f80-8570c42cc9ee"
                         },
                         new
                         {
-                            UserId = "11c3a28d-151f-45a9-b425-56ea42cbf2f2",
-                            RoleId = "7818b82f-1705-447a-ad16-bd121a63b733"
+                            UserId = "fa8f79d3-ffbe-4ecd-a446-d6fa925586d9",
+                            RoleId = "9da522c0-4fd0-4ae7-8f80-8570c42cc9ee"
                         },
                         new
                         {
-                            UserId = "29e9a0c5-2785-49c8-be07-e70831c540cc",
-                            RoleId = "7818b82f-1705-447a-ad16-bd121a63b733"
+                            UserId = "750e22b8-b158-45a1-93fd-8ff4b5fd861c",
+                            RoleId = "9da522c0-4fd0-4ae7-8f80-8570c42cc9ee"
                         },
                         new
                         {
-                            UserId = "b6c6c16d-de3e-48e5-9d6e-a0d0fd773b1a",
-                            RoleId = "7818b82f-1705-447a-ad16-bd121a63b733"
+                            UserId = "59277a80-b475-4272-9fa2-9066191cd86a",
+                            RoleId = "9da522c0-4fd0-4ae7-8f80-8570c42cc9ee"
                         });
                 });
 
@@ -234,42 +234,42 @@ namespace StudentScheduler.infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            PermissionId = "c26fd380-5387-4430-a419-0080b53f4286",
+                            PermissionId = "9ebb0073-820e-4ff5-a5ae-419d89e12b96",
                             PermissionName = "subjectAssignment:createOwn"
                         },
                         new
                         {
-                            PermissionId = "86eff601-6a54-4295-8ecc-93bf531891b8",
+                            PermissionId = "0bf1470f-10c7-41a0-8fb0-61a00eba6e30",
                             PermissionName = "subjectAssignment:updateOwn"
                         },
                         new
                         {
-                            PermissionId = "b1e31dea-8432-49e6-b243-e002bbda55f1",
+                            PermissionId = "4376a91d-0685-49c7-8608-7f9b7da1a21e",
                             PermissionName = "subjectAssignment:readOwn"
                         },
                         new
                         {
-                            PermissionId = "082c5c27-b73a-43ed-911d-f82f55f649d7",
+                            PermissionId = "001455ab-2bc8-41b4-b81e-3cc91f9419fe",
                             PermissionName = "subjectAssignment:deleteOwn"
                         },
                         new
                         {
-                            PermissionId = "d066ac50-2ca3-4d58-ae0b-70ba051e8a66",
+                            PermissionId = "712d4463-fbb5-47dc-83a1-ce23c7cd2240",
                             PermissionName = "enrollment:createOwn"
                         },
                         new
                         {
-                            PermissionId = "f093260c-4729-4d1f-bfbb-a320f8f854d0",
+                            PermissionId = "2de2ccad-d0cc-4d91-aa42-6a2019e736b2",
                             PermissionName = "enrollment:deleteOwn"
                         },
                         new
                         {
-                            PermissionId = "f4f15dbf-5a47-462f-bea4-6856895fcbf1",
+                            PermissionId = "c0e7da9e-73e6-4cb8-90a4-08141d5b5d13",
                             PermissionName = "enrollment:readOwn"
                         },
                         new
                         {
-                            PermissionId = "867c86a7-5eab-4429-ad78-539b426967d7",
+                            PermissionId = "4ca83d37-9fc7-44c6-ba1d-8944ef939a4a",
                             PermissionName = "enrollment:updateOwn"
                         });
                 });
@@ -299,99 +299,99 @@ namespace StudentScheduler.infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            RolePermissionsId = "5012ec13-79c4-4be6-a1aa-a13a2f2367e6",
-                            IdentityRoleId = "00d48d9f-d56d-470a-87f3-bdd1910198b5",
-                            PermissionId = "c26fd380-5387-4430-a419-0080b53f4286"
+                            RolePermissionsId = "5772b3b0-3df8-414a-92a0-0d4110153e4f",
+                            IdentityRoleId = "53c0fc08-e0bf-4200-91a2-b594b4d004b8",
+                            PermissionId = "9ebb0073-820e-4ff5-a5ae-419d89e12b96"
                         },
                         new
                         {
-                            RolePermissionsId = "8d5fdc43-19dd-45fe-b44b-a96e83bc5287",
-                            IdentityRoleId = "00d48d9f-d56d-470a-87f3-bdd1910198b5",
-                            PermissionId = "86eff601-6a54-4295-8ecc-93bf531891b8"
+                            RolePermissionsId = "555a9f05-585a-4489-b64e-ce05cc6b28be",
+                            IdentityRoleId = "53c0fc08-e0bf-4200-91a2-b594b4d004b8",
+                            PermissionId = "0bf1470f-10c7-41a0-8fb0-61a00eba6e30"
                         },
                         new
                         {
-                            RolePermissionsId = "702f708e-46bf-4bd3-a174-e0063c1c50fc",
-                            IdentityRoleId = "00d48d9f-d56d-470a-87f3-bdd1910198b5",
-                            PermissionId = "b1e31dea-8432-49e6-b243-e002bbda55f1"
+                            RolePermissionsId = "e6d0d961-b0f9-41d0-a7dc-a3309779cb36",
+                            IdentityRoleId = "53c0fc08-e0bf-4200-91a2-b594b4d004b8",
+                            PermissionId = "4376a91d-0685-49c7-8608-7f9b7da1a21e"
                         },
                         new
                         {
-                            RolePermissionsId = "d7d0eb54-eeab-4321-bfcd-a9841a8534df",
-                            IdentityRoleId = "00d48d9f-d56d-470a-87f3-bdd1910198b5",
-                            PermissionId = "082c5c27-b73a-43ed-911d-f82f55f649d7"
+                            RolePermissionsId = "36d3d5c8-96cb-4e72-9783-874fa1b4c6bd",
+                            IdentityRoleId = "53c0fc08-e0bf-4200-91a2-b594b4d004b8",
+                            PermissionId = "001455ab-2bc8-41b4-b81e-3cc91f9419fe"
                         },
                         new
                         {
-                            RolePermissionsId = "67fee206-b4dd-42b7-8d0a-42005aa06564",
-                            IdentityRoleId = "00d48d9f-d56d-470a-87f3-bdd1910198b5",
-                            PermissionId = "d066ac50-2ca3-4d58-ae0b-70ba051e8a66"
+                            RolePermissionsId = "87876198-f7a1-4494-8483-d214c3bcdecf",
+                            IdentityRoleId = "53c0fc08-e0bf-4200-91a2-b594b4d004b8",
+                            PermissionId = "712d4463-fbb5-47dc-83a1-ce23c7cd2240"
                         },
                         new
                         {
-                            RolePermissionsId = "f2c82317-0e2f-4af3-a5d8-d2d6ac0ab5a4",
-                            IdentityRoleId = "00d48d9f-d56d-470a-87f3-bdd1910198b5",
-                            PermissionId = "f093260c-4729-4d1f-bfbb-a320f8f854d0"
+                            RolePermissionsId = "a8ebb966-f9ce-4a93-a838-05a7cc423f4d",
+                            IdentityRoleId = "53c0fc08-e0bf-4200-91a2-b594b4d004b8",
+                            PermissionId = "2de2ccad-d0cc-4d91-aa42-6a2019e736b2"
                         },
                         new
                         {
-                            RolePermissionsId = "725588ea-d95b-4097-be2e-3ced2e0c65ef",
-                            IdentityRoleId = "00d48d9f-d56d-470a-87f3-bdd1910198b5",
-                            PermissionId = "f4f15dbf-5a47-462f-bea4-6856895fcbf1"
+                            RolePermissionsId = "1e6674ff-c1b0-4589-8130-84890204ecea",
+                            IdentityRoleId = "53c0fc08-e0bf-4200-91a2-b594b4d004b8",
+                            PermissionId = "c0e7da9e-73e6-4cb8-90a4-08141d5b5d13"
                         },
                         new
                         {
-                            RolePermissionsId = "dfda65aa-2759-41cd-9485-b1c28d628ebd",
-                            IdentityRoleId = "00d48d9f-d56d-470a-87f3-bdd1910198b5",
-                            PermissionId = "867c86a7-5eab-4429-ad78-539b426967d7"
+                            RolePermissionsId = "b792edb2-e95b-4935-81c9-6301b4df3876",
+                            IdentityRoleId = "53c0fc08-e0bf-4200-91a2-b594b4d004b8",
+                            PermissionId = "4ca83d37-9fc7-44c6-ba1d-8944ef939a4a"
                         },
                         new
                         {
-                            RolePermissionsId = "fcd2749e-5d2c-4bdd-8bce-06e623051873",
-                            IdentityRoleId = "37d9a3a7-6be1-4b94-b436-eefc727b65a8",
-                            PermissionId = "d066ac50-2ca3-4d58-ae0b-70ba051e8a66"
+                            RolePermissionsId = "7aed509a-e3c4-4c7d-bbf0-162568d06a25",
+                            IdentityRoleId = "e3968c6b-5ef3-492a-9cbc-7ac243b3c5b2",
+                            PermissionId = "712d4463-fbb5-47dc-83a1-ce23c7cd2240"
                         },
                         new
                         {
-                            RolePermissionsId = "a67662dd-fade-41e8-9ff5-14af95db5195",
-                            IdentityRoleId = "37d9a3a7-6be1-4b94-b436-eefc727b65a8",
-                            PermissionId = "f093260c-4729-4d1f-bfbb-a320f8f854d0"
+                            RolePermissionsId = "44c9d6d5-93e1-4960-b790-23ec4119467f",
+                            IdentityRoleId = "e3968c6b-5ef3-492a-9cbc-7ac243b3c5b2",
+                            PermissionId = "2de2ccad-d0cc-4d91-aa42-6a2019e736b2"
                         },
                         new
                         {
-                            RolePermissionsId = "14f816a6-6037-44ab-bba9-9a3ad340a06c",
-                            IdentityRoleId = "37d9a3a7-6be1-4b94-b436-eefc727b65a8",
-                            PermissionId = "f4f15dbf-5a47-462f-bea4-6856895fcbf1"
+                            RolePermissionsId = "670d1bcb-c3a3-410c-888a-454d244950a6",
+                            IdentityRoleId = "e3968c6b-5ef3-492a-9cbc-7ac243b3c5b2",
+                            PermissionId = "c0e7da9e-73e6-4cb8-90a4-08141d5b5d13"
                         },
                         new
                         {
-                            RolePermissionsId = "5054d63b-c34c-4196-a086-d8baa919848d",
-                            IdentityRoleId = "37d9a3a7-6be1-4b94-b436-eefc727b65a8",
-                            PermissionId = "867c86a7-5eab-4429-ad78-539b426967d7"
+                            RolePermissionsId = "92cab7fc-afa2-470a-aa1f-745acfc556de",
+                            IdentityRoleId = "e3968c6b-5ef3-492a-9cbc-7ac243b3c5b2",
+                            PermissionId = "4ca83d37-9fc7-44c6-ba1d-8944ef939a4a"
                         },
                         new
                         {
-                            RolePermissionsId = "55d56670-47db-4a6d-8857-2de464164369",
-                            IdentityRoleId = "7818b82f-1705-447a-ad16-bd121a63b733",
-                            PermissionId = "c26fd380-5387-4430-a419-0080b53f4286"
+                            RolePermissionsId = "f3650839-f92a-4f5b-8257-2f692efc606d",
+                            IdentityRoleId = "9da522c0-4fd0-4ae7-8f80-8570c42cc9ee",
+                            PermissionId = "9ebb0073-820e-4ff5-a5ae-419d89e12b96"
                         },
                         new
                         {
-                            RolePermissionsId = "78d1cbf1-17e9-452d-adf7-13e2debcad3e",
-                            IdentityRoleId = "7818b82f-1705-447a-ad16-bd121a63b733",
-                            PermissionId = "86eff601-6a54-4295-8ecc-93bf531891b8"
+                            RolePermissionsId = "48f1a7ec-fea9-4a74-ba42-8f5360a13ae1",
+                            IdentityRoleId = "9da522c0-4fd0-4ae7-8f80-8570c42cc9ee",
+                            PermissionId = "0bf1470f-10c7-41a0-8fb0-61a00eba6e30"
                         },
                         new
                         {
-                            RolePermissionsId = "5aaf9d80-a9bd-4c2a-bf92-ce247c20f026",
-                            IdentityRoleId = "7818b82f-1705-447a-ad16-bd121a63b733",
-                            PermissionId = "b1e31dea-8432-49e6-b243-e002bbda55f1"
+                            RolePermissionsId = "c92edbda-6202-44c9-8d6b-379a3528b495",
+                            IdentityRoleId = "9da522c0-4fd0-4ae7-8f80-8570c42cc9ee",
+                            PermissionId = "4376a91d-0685-49c7-8608-7f9b7da1a21e"
                         },
                         new
                         {
-                            RolePermissionsId = "5a70a0d7-0773-4b38-b4fc-1483c6425988",
-                            IdentityRoleId = "7818b82f-1705-447a-ad16-bd121a63b733",
-                            PermissionId = "082c5c27-b73a-43ed-911d-f82f55f649d7"
+                            RolePermissionsId = "d0e5b11f-43a0-4686-8f8b-1cc693ed2731",
+                            IdentityRoleId = "9da522c0-4fd0-4ae7-8f80-8570c42cc9ee",
+                            PermissionId = "001455ab-2bc8-41b4-b81e-3cc91f9419fe"
                         });
                 });
 
@@ -419,70 +419,70 @@ namespace StudentScheduler.infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            SubjectId = "197d92e9-a3e3-4122-ab4c-ad715806c1dc",
+                            SubjectId = "7dc8bcc7-f26c-41aa-bd27-e4118c34e27a",
                             Credits = 3,
                             Description = "Introducción a la Programación",
                             Name = "Introducción a la Programación"
                         },
                         new
                         {
-                            SubjectId = "82c67ba1-44e3-46c2-aaa2-06baad650e0d",
+                            SubjectId = "6e8b8570-2802-4952-9abb-06704a97eef6",
                             Credits = 3,
                             Description = "Estructuras de Datos y Algoritmos",
                             Name = "Estructuras de Datos y Algoritmos"
                         },
                         new
                         {
-                            SubjectId = "710dd901-acb9-4552-88d0-fa97afc05813",
+                            SubjectId = "7248fb57-c2a7-4d19-a95c-a51de59a5af5",
                             Credits = 3,
                             Description = "Sistemas de Gestión de Bases de Datos",
                             Name = "Sistemas de Gestión de Bases de Datos"
                         },
                         new
                         {
-                            SubjectId = "b84f60fa-6c10-42d0-ac74-d0b5db54e1e3",
+                            SubjectId = "c1fe37ae-7bb8-446a-abd5-45b7a137a7a6",
                             Credits = 3,
                             Description = "Ingeniería de Software",
                             Name = "Ingeniería de Software"
                         },
                         new
                         {
-                            SubjectId = "c1e47552-90c1-4c6f-9713-9a172965a7dc",
+                            SubjectId = "95b833d8-3625-4f90-85e3-830c155e5678",
                             Credits = 3,
                             Description = "Desarrollo Web",
                             Name = "Desarrollo Web"
                         },
                         new
                         {
-                            SubjectId = "db823bee-1fa4-40aa-8ed4-7e5e77baa875",
+                            SubjectId = "77adacb6-a671-4fed-9b23-54c3002945af",
                             Credits = 3,
                             Description = "Desarrollo de Aplicaciones Móviles",
                             Name = "Desarrollo de Aplicaciones Móviles"
                         },
                         new
                         {
-                            SubjectId = "47fdaba8-5a1c-4b85-9e49-60e97a5bbb95",
+                            SubjectId = "3f0b60ab-d3e5-4bf7-b8de-60ef3749f8f1",
                             Credits = 3,
                             Description = "Computación en la Nube",
                             Name = "Computación en la Nube"
                         },
                         new
                         {
-                            SubjectId = "d961b827-d21f-45d2-b597-f6b01ce716ac",
+                            SubjectId = "9e6697ff-174a-43d3-bdc9-7481edc1f56f",
                             Credits = 3,
                             Description = "Inteligencia Artificial y Aprendizaje Automático",
                             Name = "Inteligencia Artificial y Aprendizaje Automático"
                         },
                         new
                         {
-                            SubjectId = "6b14bb97-7ff7-405c-b20a-094b6f71cce6",
+                            SubjectId = "3b2ec835-b5ae-425d-b4b4-4f6e25e59326",
                             Credits = 3,
                             Description = "Fundamentos de Ciberseguridad",
                             Name = "Fundamentos de Ciberseguridad"
                         },
                         new
                         {
-                            SubjectId = "24dc14a9-1bb5-4b21-9599-2baf51d52a0c",
+                            SubjectId = "f88d1ff0-9a27-44e1-8c6e-2e176a857c7b",
                             Credits = 3,
                             Description = "Control de Versiones y Herramientas de Colaboración",
                             Name = "Control de Versiones y Herramientas de Colaboración"
@@ -510,6 +510,68 @@ namespace StudentScheduler.infrastructure.Migrations
                     b.HasIndex("TeacherId");
 
                     b.ToTable("SubjectAssignments");
+
+                    b.HasData(
+                        new
+                        {
+                            SubjectAssignmentId = "cfcccee5-4ec9-4d90-bc58-d525677872b8",
+                            SubjectId = "7dc8bcc7-f26c-41aa-bd27-e4118c34e27a",
+                            TeacherId = "18cd856b-9c30-4454-8b57-f951026436fe"
+                        },
+                        new
+                        {
+                            SubjectAssignmentId = "2a1dc4c7-aff1-4f1f-a9ec-5bce9edc5083",
+                            SubjectId = "6e8b8570-2802-4952-9abb-06704a97eef6",
+                            TeacherId = "b7a567b5-fa54-477b-a698-8839baf876bb"
+                        },
+                        new
+                        {
+                            SubjectAssignmentId = "682489cb-e2be-4ab4-862d-b196f8e24fb1",
+                            SubjectId = "7248fb57-c2a7-4d19-a95c-a51de59a5af5",
+                            TeacherId = "fa8f79d3-ffbe-4ecd-a446-d6fa925586d9"
+                        },
+                        new
+                        {
+                            SubjectAssignmentId = "e24e860d-7e94-424a-8b0c-58f29fbd39ee",
+                            SubjectId = "c1fe37ae-7bb8-446a-abd5-45b7a137a7a6",
+                            TeacherId = "750e22b8-b158-45a1-93fd-8ff4b5fd861c"
+                        },
+                        new
+                        {
+                            SubjectAssignmentId = "e26f9365-be56-48c1-b3dc-fd4a5a0b3b2f",
+                            SubjectId = "95b833d8-3625-4f90-85e3-830c155e5678",
+                            TeacherId = "59277a80-b475-4272-9fa2-9066191cd86a"
+                        },
+                        new
+                        {
+                            SubjectAssignmentId = "d0e9da28-1f63-4c20-8517-3817f797369f",
+                            SubjectId = "77adacb6-a671-4fed-9b23-54c3002945af",
+                            TeacherId = "18cd856b-9c30-4454-8b57-f951026436fe"
+                        },
+                        new
+                        {
+                            SubjectAssignmentId = "289feb0e-dafe-47d0-a5e4-296ba21f75fc",
+                            SubjectId = "3f0b60ab-d3e5-4bf7-b8de-60ef3749f8f1",
+                            TeacherId = "b7a567b5-fa54-477b-a698-8839baf876bb"
+                        },
+                        new
+                        {
+                            SubjectAssignmentId = "6c565099-5a55-454b-bd7b-8e712fd014ec",
+                            SubjectId = "9e6697ff-174a-43d3-bdc9-7481edc1f56f",
+                            TeacherId = "fa8f79d3-ffbe-4ecd-a446-d6fa925586d9"
+                        },
+                        new
+                        {
+                            SubjectAssignmentId = "57bc0c1e-5f0b-46ce-8a20-2b9aadf03593",
+                            SubjectId = "3b2ec835-b5ae-425d-b4b4-4f6e25e59326",
+                            TeacherId = "750e22b8-b158-45a1-93fd-8ff4b5fd861c"
+                        },
+                        new
+                        {
+                            SubjectAssignmentId = "26032492-c81e-4e2e-a332-491aac5dbd66",
+                            SubjectId = "f88d1ff0-9a27-44e1-8c6e-2e176a857c7b",
+                            TeacherId = "59277a80-b475-4272-9fa2-9066191cd86a"
+                        });
                 });
 
             modelBuilder.Entity("StudentScheduler.Domain.Entities.User", b =>
@@ -565,6 +627,9 @@ namespace StudentScheduler.infrastructure.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("longtext");
 
+                    b.Property<string>("SubjectAssignmentId")
+                        .HasColumnType("varchar(50)");
+
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("tinyint(1)");
 
@@ -581,14 +646,16 @@ namespace StudentScheduler.infrastructure.Migrations
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex");
 
+                    b.HasIndex("SubjectAssignmentId");
+
                     b.ToTable("Users", (string)null);
 
                     b.HasData(
                         new
                         {
-                            Id = "f5408a62-9b5e-493e-85af-0df0b5d0c959",
+                            Id = "18cd856b-9c30-4454-8b57-f951026436fe",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b1c4cbfc-b2e4-423f-a47c-e58ed4d2f709",
+                            ConcurrencyStamp = "4369a37d-24bc-4ecd-abbd-cd80f4acbd36",
                             Email = "juan.perez@inventado.com",
                             EmailConfirmed = true,
                             FirstName = "Juan",
@@ -596,17 +663,17 @@ namespace StudentScheduler.infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "JUAN.PEREZ@INVENTADO.COM",
                             NormalizedUserName = "JUANPEREZ",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBNAkT7dmWJOn9a6BQROkgUMzsXquoqrXhSiiI4Wg89eKGaacbUABWXcT0NiU6KSWA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEShIOv867kYEVdBQwCWIhSqQGBM6lzeW5gHdXl8Pdhya0TV+YznidEUQU9zlTyIBQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9d817ad7-1aa7-4a87-aa58-652cec75baed",
+                            SecurityStamp = "749e403e-6018-419a-8d0d-67ab06cd18a1",
                             TwoFactorEnabled = false,
                             UserName = "JuanPerez"
                         },
                         new
                         {
-                            Id = "49d16cb8-4c86-4449-9638-addf87d0d24f",
+                            Id = "b7a567b5-fa54-477b-a698-8839baf876bb",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "fc54b4cf-e68f-4e4f-8892-73587731a3ba",
+                            ConcurrencyStamp = "36b53dc7-a508-45f1-af05-4ef22fe82b71",
                             Email = "maria.gonzalez@inventado.com",
                             EmailConfirmed = true,
                             FirstName = "María",
@@ -614,17 +681,17 @@ namespace StudentScheduler.infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "MARIA.GONZALEZ@INVENTADO.COM",
                             NormalizedUserName = "MARIAGONZALEZ",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFQGeEE18grJxsLRmq28bC56rJTBPDrEedrHWjJn6M3LVjbUw+lTYwvXwhc4Sp++6Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECjHrkwFglPocFiAcMkhnkSoJXF/v1Tq2mH+1o0S9+hVBqW9PVdYcU8YUA7dGpN0cQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3ab92c8b-fd2f-4dbf-ad54-5072d272c49a",
+                            SecurityStamp = "54de6812-0b98-4a7d-bec0-da7205faac95",
                             TwoFactorEnabled = false,
                             UserName = "MariaGonzalez"
                         },
                         new
                         {
-                            Id = "11c3a28d-151f-45a9-b425-56ea42cbf2f2",
+                            Id = "fa8f79d3-ffbe-4ecd-a446-d6fa925586d9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "78db33b7-1094-4ef6-8d8d-24ad2e0d7ed8",
+                            ConcurrencyStamp = "bbf8fef0-0e25-45d5-b6b9-11098909bd3b",
                             Email = "carlos.ramirez@inventado.com",
                             EmailConfirmed = true,
                             FirstName = "Carlos",
@@ -632,17 +699,17 @@ namespace StudentScheduler.infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CARLOS.RAMIREZ@INVENTADO.COM",
                             NormalizedUserName = "CARLOSRAMIREZ",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHlbY/GNM8qwtKG/Fpo6jfrXXPn4uvlLyAiF03Q9rwiZUJt+dFDPLRa36ALgBy8oXg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEA0rgNagyronKjS9I1nE2VqlkyAiie0ps7ibYvDYZYQMsHmF6UiyveYssWVDT7Uw6w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "59050218-5801-452b-8777-0ee7feaafe8c",
+                            SecurityStamp = "797bc8d4-fdb5-41c0-bb37-5474cf15a1ea",
                             TwoFactorEnabled = false,
                             UserName = "CarlosRamirez"
                         },
                         new
                         {
-                            Id = "29e9a0c5-2785-49c8-be07-e70831c540cc",
+                            Id = "750e22b8-b158-45a1-93fd-8ff4b5fd861c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "efb52c53-06f3-432e-9b6a-916beb65bc8f",
+                            ConcurrencyStamp = "3bd3644b-0583-409a-8b9c-13959856fe87",
                             Email = "ana.martinez@inventado.com",
                             EmailConfirmed = true,
                             FirstName = "Ana",
@@ -650,17 +717,17 @@ namespace StudentScheduler.infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ANA.MARTINEZ@INVENTADO.COM",
                             NormalizedUserName = "ANAMARTINEZ",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAxVslC786rg59iBvzLm2yTQszZW9CRVQIVt9X31MGccdkbincaaxxdzLUdlwBDGLg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEO2B+Vp3iTVijRqSc652TXu4ccdbE9Awe7ItwP5xM/+Cjwj6v3LQ5ovOqT0nsm8Y4w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d3a79481-03cc-4c8b-a293-1e5ba25a5c22",
+                            SecurityStamp = "18b8cc29-a320-4978-b910-a96e6a5037d1",
                             TwoFactorEnabled = false,
                             UserName = "AnaMartinez"
                         },
                         new
                         {
-                            Id = "b6c6c16d-de3e-48e5-9d6e-a0d0fd773b1a",
+                            Id = "59277a80-b475-4272-9fa2-9066191cd86a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6c1f7475-a6e2-4fef-bad8-4da15445f5f7",
+                            ConcurrencyStamp = "0c031890-23ec-4890-9547-e4dd1d153a21",
                             Email = "luis.fernandez@inventado.com",
                             EmailConfirmed = true,
                             FirstName = "Luis",
@@ -668,9 +735,9 @@ namespace StudentScheduler.infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "LUIS.FERNANDEZ@INVENTADO.COM",
                             NormalizedUserName = "LUISFERNANDEZ",
-                            PasswordHash = "AQAAAAIAAYagAAAAEChipy9r8GsHEDsqLBtAo2G0Ro9Iuc43qKfiaX5O/5aXBnu1npZU+bhvnr26dZTHng==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEF5umRNA0PCooiexaaRJb5ryn19MTgtUvi/mNP2OJVoFW6fLz1FoEEdrHCfF8SyqdQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c0852b65-e414-47f8-b58c-270fe6debb03",
+                            SecurityStamp = "4857dc82-b5d5-419e-9d59-f84f68d9ab29",
                             TwoFactorEnabled = false,
                             UserName = "LuisFernandez"
                         });
@@ -736,7 +803,7 @@ namespace StudentScheduler.infrastructure.Migrations
                         .IsRequired();
 
                     b.HasOne("StudentScheduler.Domain.Entities.SubjectAssignment", "SubjectAssignment")
-                        .WithMany()
+                        .WithMany("Enrollments")
                         .HasForeignKey("SubjectAssignmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -782,6 +849,20 @@ namespace StudentScheduler.infrastructure.Migrations
                     b.Navigation("Subject");
 
                     b.Navigation("Teacher");
+                });
+
+            modelBuilder.Entity("StudentScheduler.Domain.Entities.User", b =>
+                {
+                    b.HasOne("StudentScheduler.Domain.Entities.SubjectAssignment", null)
+                        .WithMany("Students")
+                        .HasForeignKey("SubjectAssignmentId");
+                });
+
+            modelBuilder.Entity("StudentScheduler.Domain.Entities.SubjectAssignment", b =>
+                {
+                    b.Navigation("Enrollments");
+
+                    b.Navigation("Students");
                 });
 #pragma warning restore 612, 618
         }

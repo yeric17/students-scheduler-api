@@ -40,7 +40,9 @@ namespace StudentScheduler.infrastructure.Repositories
 
         public async Task<ResultValue<List<Enrollment>>> GetStudentEnrollments(string userId)
 		{
-			var results = await _dbContext.Enrollments.Where(e => e.StudentId == userId).ToListAsync();
+			var results = await _dbContext.Enrollments
+                .Include(e => e.SubjectAssignment)
+                .Where(e => e.StudentId == userId).ToListAsync();
 			if (results is null)
 			{
 				return new List<Enrollment>();

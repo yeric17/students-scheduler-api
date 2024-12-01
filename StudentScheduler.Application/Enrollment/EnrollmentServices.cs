@@ -1,7 +1,7 @@
 ﻿
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using StudentScheduler.Domain.Abstractions;
+using StudentScheduler.Domain.Entities;
 using StudentScheduler.Share.Abstractions;
 using StudentScheduler.Share.ErrorHandling;
 
@@ -52,17 +52,22 @@ namespace StudentScheduler.Application.Enrollment
 
 			if (subjectAssignmentResult.IsFailure)
 			{
-				return Result.Failure(subjectAssignmentResult.Error);
+				return subjectAssignmentResult.Error!;
 			}
 
-			if(studentEnrollmentsResult.Value.Count == _maxSubjectEnrollment)
+			if (IsAlreadyAssigned(subjectAssignmentId, subjectAssignmentResult, studentEnrollmentsResult))
 			{
-				return Result.Failure(EnrollmentErrors.MaxEnrollmentReached(_maxSubjectEnrollment));
+				return EnrollmentErrors.AlreadyEnrollment;
+			}
+
+			if (studentEnrollmentsResult.Value.Count == _maxSubjectEnrollment)
+			{
+				return EnrollmentErrors.MaxEnrollmentReached(_maxSubjectEnrollment);
 			}
 
 			if (studentEnrollmentsResult.IsFailure)
 			{
-				return Result.Failure(studentEnrollmentsResult.Error);
+				return studentEnrollmentsResult.Error!;
 			}
 
 			var enrollmentsWithCurrentTeacher = studentEnrollmentsResult.Value.Where(e => e.SubjectAssignment.TeacherId == subjectAssignmentResult.Value.TeacherId).ToList();
@@ -73,6 +78,11 @@ namespace StudentScheduler.Application.Enrollment
 			}
 
 			return Result.Success();
+		}
+
+		private bool IsAlreadyAssigned(string subjectAssignmentId, ResultValue<SubjectAssignment> subjectAssignmentResult, ResultValue<List<Domain.Entities.Enrollment>> studentEnrollmentsResult)
+		{
+			return studentEnrollmentsResult.Value.Any(er => er.SubjectAssignmentId == subjectAssignmentId || er.SubjectAssignment.SubjectId == subjectAssignmentResult.Value.SubjectId);
 		}
 	}
 }

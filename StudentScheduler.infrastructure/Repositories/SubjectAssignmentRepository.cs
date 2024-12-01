@@ -38,7 +38,13 @@ namespace StudentScheduler.infrastructure.Repositories
 
 		public async Task<ResultValue<List<SubjectAssignment>>> GetSubjectsAssignment()
 		{
-			var results = await _dbContext.SubjectAssignments.ToListAsync();
+			var results = await _dbContext
+				.SubjectAssignments
+				.Include(sa => sa.Teacher)
+				.Include(sa => sa.Subject)
+				.AsSplitQuery()
+				.AsNoTracking()
+				.ToListAsync();
 			if(results is null)
 			{
 				return new List<SubjectAssignment>();
@@ -61,12 +67,32 @@ namespace StudentScheduler.infrastructure.Repositories
 
 		public async Task<ResultValue<SubjectAssignment>> GetSubjectAssigmentById(string subjectAssignmentId)
 		{
-			var result = await _dbContext.SubjectAssignments.FirstOrDefaultAsync(sa => sa.SubjectAssignmentId == subjectAssignmentId);
+			var result = await _dbContext.SubjectAssignments
+				.Include(sa => sa.Subject)
+				.FirstOrDefaultAsync(sa => sa.SubjectAssignmentId == subjectAssignmentId);
 			if (result is null)
 			{
 				return SubjectAssignmentErrors.SubjectAssignmentNotFound;
 			}
 			return result;
+		}
+
+		public async Task<ResultValue<List<SubjectAssignment>>> GetSubjectsAssigmentByStudentId(string studentId)
+		{
+			var results = await _dbContext.Enrollments
+				.Include(e => e.SubjectAssignment)
+				.ThenInclude(sa => sa.Students)
+				.Where(es => es.StudentId == studentId)
+				.AsSplitQuery()
+				.AsNoTracking()
+				.Select(es => es.SubjectAssignment)
+				.ToListAsync();
+
+			if (results is null)
+			{
+				return new List<SubjectAssignment>();
+			}
+			return results;
 		}
 	}
 }

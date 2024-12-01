@@ -1,10 +1,6 @@
-﻿using StudentScheduler.Domain.Abstractions;
+﻿using StudentScheduler.Application.SubjectsAssignment.Responses;
+using StudentScheduler.Domain.Abstractions;
 using StudentScheduler.Share.Abstractions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentScheduler.Application.SubjectsAssignment
 {
@@ -19,7 +15,30 @@ namespace StudentScheduler.Application.SubjectsAssignment
 
 		public Task<Result> AddSubjectAssignment(string subjectId, string teacherId)
 		{
+			
 			return _subjectAssignmentRepository.AddSubjectAssignment(subjectId, teacherId);
+		}
+
+		public async Task<ResultValue<List<SubjectAssigmentGetResponse>>> GetSubjectsAssigment()
+		{
+			var results = await _subjectAssignmentRepository.GetSubjectsAssignment();
+
+			if(results.IsFailure)
+			{
+				return results.Error!;
+			}
+
+			var subjectAssignmentResponses = results.Value.Select(subjectAssignment =>
+				new SubjectAssigmentGetResponse {
+					SubjectAssignmentId = subjectAssignment.SubjectAssignmentId,
+					SubjectId = subjectAssignment.Subject.SubjectId,
+					SubjectName = subjectAssignment.Subject.Name,
+					TeacherId = subjectAssignment.Teacher.Id,
+					TeacherName = $"{subjectAssignment.Teacher.FirstName} {subjectAssignment.Teacher.LastName}"
+
+				}).ToList();
+
+			return subjectAssignmentResponses;
 		}
 	}
 }
