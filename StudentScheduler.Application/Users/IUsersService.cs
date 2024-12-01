@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentScheduler.Share.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace StudentScheduler.Application.Users
 {
     public interface IUsersService
     {
-        Task AssignUserRole(string userId, string roleName);
+        Task<Result> AssignUserRole(string userId, string roleName);
     }
 }

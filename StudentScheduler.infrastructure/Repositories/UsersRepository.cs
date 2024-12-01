@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Identity;
 using StudentScheduler.Domain.Abstractions;
 using StudentScheduler.infrastructure.Abstractions;
 using StudentScheduler.infrastructure.Data;
+using StudentScheduler.Share.Abstractions;
+using StudentScheduler.Share.ErrorHandling;
 
 namespace StudentScheduler.infrastructure.Repositories
 {
@@ -16,7 +18,7 @@ namespace StudentScheduler.infrastructure.Repositories
         {
         }
 
-        public async Task AssignUserRole(string userId, string roleId)
+        public async Task<Result> AssignUserRole(string userId, string roleId)
         {
 
             var userRole = new IdentityUserRole<string>
@@ -28,10 +30,12 @@ namespace StudentScheduler.infrastructure.Repositories
             try
             {
                 await _dbContext.SaveChangesAsync();
-            }
+                return Result.Success();
+			}
             catch (Exception e)
             {
-                throw new Exception("Error while assigning role to user.", e);
+                Console.WriteLine(e);
+				return Result.Failure(UserErrors.AssignUserRoleFailure(userId,roleId));
             }
         }
     }

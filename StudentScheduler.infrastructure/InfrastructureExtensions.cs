@@ -51,8 +51,9 @@ namespace StudentScheduler.infrastructure
             services.AddTransient<IUsersRepository, UsersRepository>();
             services.AddTransient<IRolesRepository, RolesRepository>();
             services.AddTransient<IEnrollmentRepository, EnrollmentRepository>();
+			services.AddTransient<ISubjectAssignmentRepository, SubjectAssignmentRepository>();
 
-            return services;
+			return services;
         }
     }
 }

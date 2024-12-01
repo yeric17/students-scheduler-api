@@ -1,5 +1,7 @@
 ﻿
 using Microsoft.Extensions.DependencyInjection;
+using StudentScheduler.Application.Enrollment;
+using StudentScheduler.Application.SubjectsAssignment;
 using StudentScheduler.Application.Users;
 
 namespace StudentScheduler.Application
@@ -9,7 +11,10 @@ namespace StudentScheduler.Application
         public static IServiceCollection AddApplicationLayer(this IServiceCollection services)
         {
             services.AddTransient<IUsersService, UsersService>();
-            return services;
+            services.AddTransient<IEnrollmentServices, EnrollmentServices>();
+            services.AddTransient<ISubjectAssignmentServices, SubjectAssignmentServices>();
+
+			return services;
         }
     }
 }

@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using StudentScheduler.Domain.Entities;
+using StudentScheduler.Share.Abstractions;
 
 namespace StudentScheduler.Domain.Abstractions
 {
     public interface IEnrollmentRepository
     {
-        Task AddEnrollment(string enrrollmentId, string userId);
-    }
+        Task<Result> AddEnrollment(string enrrollmentId, string userId);
+		Task<ResultValue<List<Enrollment>>> GetStudentEnrollments(string userId);
+	}
 }

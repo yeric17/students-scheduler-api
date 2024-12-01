@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using StudentScheduler.Domain.Abstractions;
 using StudentScheduler.infrastructure.Abstractions;
 using StudentScheduler.infrastructure.Data;
+using StudentScheduler.Share.Abstractions;
+using StudentScheduler.Share.ErrorHandling;
 
 namespace StudentScheduler.infrastructure.Repositories
 {
@@ -17,13 +19,13 @@ namespace StudentScheduler.infrastructure.Repositories
         {
         }
 
-        public async Task<IdentityRole> GetRoleByName(string roleName)
+        public async Task<ResultValue<IdentityRole>> GetRoleByName(string roleName)
         {
             var result = await  _dbContext.Roles.FirstOrDefaultAsync(r => r.Name == roleName);
 
             if(result == null)
             {
-                throw new Exception($"Role {roleName} not found");
+                return ResultValue<IdentityRole>.Failure(RoleErrors.RoleNameNotFound(roleName));
             }
 
             return result;

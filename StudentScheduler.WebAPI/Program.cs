@@ -34,7 +34,10 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.MapGroup("/api/account").MapUsers();
+app.MapGroup("/api")
+    .MapGroup("/account").MapUsers()
+    .MapGroup("/enrollments").MapEnrollment();
+
 
 app.MapIdentityApi<User>();
 

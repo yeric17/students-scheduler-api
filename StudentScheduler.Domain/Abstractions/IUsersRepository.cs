@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using StudentScheduler.Share.Abstractions;
 
 namespace StudentScheduler.Domain.Abstractions
 {
     public interface IUsersRepository
     {
-        Task AssignUserRole(string userId, string roleName);
+        Task<Result> AssignUserRole(string userId, string roleName);
     }
 }

@@ -1,5 +1,6 @@
 ﻿
 using StudentScheduler.Domain.Abstractions;
+using StudentScheduler.Share.Abstractions;
 
 namespace StudentScheduler.Application.Users
 {
@@ -13,15 +14,18 @@ namespace StudentScheduler.Application.Users
             _rolesRepository = rolesRepository;
         }
 
-        public async Task AssignUserRole(string userId, string roleName)
+        public async Task<Result> AssignUserRole(string userId, string roleName)
         {
-            var role = await _rolesRepository.GetRoleByName(roleName);
+            var roleResult = await _rolesRepository.GetRoleByName(roleName);
 
-            if (role == null)
+            if (roleResult.IsFailure)
             {
-                throw new Exception("Role not found.");
+                return Result.Failure(roleResult.Error!);
             }
-            await _usersRepository.AssignUserRole(userId, role.Id);
-        }
+            var role = roleResult.Value;
+			await _usersRepository.AssignUserRole(userId,role.Id);
+
+            return Result.Success();
+		}
     }
 }
