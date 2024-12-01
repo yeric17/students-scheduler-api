@@ -12,6 +12,7 @@ namespace StudentScheduler.infrastructure
 {
     public static class InfrastructureExtensions
     {
+        
         public static IServiceCollection AddInfrastructureLayer(this IServiceCollection services, IConfiguration configuration)
         {
             services
@@ -31,7 +32,7 @@ namespace StudentScheduler.infrastructure
             services.AddDbContext<ApplicationDbContext>(options =>
              options.UseMySQL(connectionString));
 
-            return services;
+			return services;
         }
 
 

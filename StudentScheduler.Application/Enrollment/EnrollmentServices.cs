@@ -1,5 +1,7 @@
-﻿using StudentScheduler.Domain.Abstractions;
-using StudentScheduler.Domain.Entities;
+﻿
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using StudentScheduler.Domain.Abstractions;
 using StudentScheduler.Share.Abstractions;
 using StudentScheduler.Share.ErrorHandling;
 
@@ -9,11 +11,17 @@ namespace StudentScheduler.Application.Enrollment
     {
         private readonly IEnrollmentRepository _enrollmentRepository;
 		private readonly ISubjectAssignmentRepository _subjectAssignmentRepository;
+		private int _maxSubjectEnrollment = 3;
+		private int _maxSameTeacherAssigned = 1;
 
-		public EnrollmentServices(IEnrollmentRepository enrollmentRepository, ISubjectAssignmentRepository subjectAssignmentRepository)
+
+		public EnrollmentServices(IEnrollmentRepository enrollmentRepository, ISubjectAssignmentRepository subjectAssignmentRepository, IConfiguration configuration)
 		{
 			_enrollmentRepository = enrollmentRepository;
 			_subjectAssignmentRepository = subjectAssignmentRepository;
+			_maxSubjectEnrollment = configuration.GetValue<int>("MaxSubjectEnrollment");
+			_maxSameTeacherAssigned = configuration.GetValue<int>("MaxSameTeacherAssigned");
+
 		}
 
 		public async Task<Result> AddEnrollment(string subjectAssignmentId, string studentId)
@@ -44,19 +52,24 @@ namespace StudentScheduler.Application.Enrollment
 
 			if (subjectAssignmentResult.IsFailure)
 			{
-				return Result.Failure(subjectAssignmentResult.Error!);
+				return Result.Failure(subjectAssignmentResult.Error);
+			}
+
+			if(studentEnrollmentsResult.Value.Count == _maxSubjectEnrollment)
+			{
+				return Result.Failure(EnrollmentErrors.MaxEnrollmentReached(_maxSubjectEnrollment));
 			}
 
 			if (studentEnrollmentsResult.IsFailure)
 			{
-				return Result.Failure(studentEnrollmentsResult.Error!);
+				return Result.Failure(studentEnrollmentsResult.Error);
 			}
 
 			var enrollmentsWithCurrentTeacher = studentEnrollmentsResult.Value.Where(e => e.SubjectAssignment.TeacherId == subjectAssignmentResult.Value.TeacherId).ToList();
 
-			if (enrollmentsWithCurrentTeacher is not null && enrollmentsWithCurrentTeacher.Count > 0)
+			if (enrollmentsWithCurrentTeacher is not null && enrollmentsWithCurrentTeacher.Count == _maxSameTeacherAssigned)
 			{
-				return Result.Failure(EnrollmentErrors.StudentAlreadyAssignedToTeacher);
+				return Result.Failure(EnrollmentErrors.MaxSameTeacherAssigned(_maxSameTeacherAssigned));
 			}
 
 			return Result.Success();

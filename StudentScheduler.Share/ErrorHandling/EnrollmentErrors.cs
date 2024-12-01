@@ -1,9 +1,4 @@
 ﻿using StudentScheduler.Share.Abstractions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentScheduler.Share.ErrorHandling
 {
@@ -14,7 +9,9 @@ namespace StudentScheduler.Share.ErrorHandling
 		}
 
 		public static Error AddEnrollmentFailure = Conflict("EnrollmentErrors.AddEnrollmentFailure","Add Enrollment failure");
-		//el estudiante solo puede tener una clase con cada profesor
-		public static Error StudentAlreadyAssignedToTeacher = Conflict("EnrollmentErrors.StudentAlreadyAssignTeacher", "Student already assign teacher");
+		
+		public static Error MaxSameTeacherAssigned(int max)  => Validation("EnrollmentErrors.StudentAlreadyAssignTeacher", $"Max assignet with the same teacher is {max}");
+
+		public static Error MaxEnrollmentReached(int max) => Validation("EnrollmentErrors.MaxEnrollmentReached", $"Max enrollment reached. Max is {max}");
 	}
 }
