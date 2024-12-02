@@ -34,9 +34,10 @@ namespace StudentScheduler.Application.SubjectsAssignment
 					SubjectId = subjectAssignment.Subject.SubjectId,
 					SubjectName = subjectAssignment.Subject.Name,
 					TeacherId = subjectAssignment.Teacher.Id,
-					TeacherName = $"{subjectAssignment.Teacher.FirstName} {subjectAssignment.Teacher.LastName}"
+					TeacherName = $"{subjectAssignment.Teacher.FirstName} {subjectAssignment.Teacher.LastName}",
+					StudentsCount = subjectAssignment.Enrollments != null ? subjectAssignment.Enrollments.Count : 0
 
-				}).ToList();
+                }).ToList();
 
 			return subjectAssignmentResponses;
 		}
@@ -69,7 +70,8 @@ namespace StudentScheduler.Application.SubjectsAssignment
 					SubjectName = sa.Subject.Name,
 					TeacherId = sa.Teacher.Id,
 					TeacherName = $"{sa.Teacher.FirstName} {sa.Teacher.LastName}",
-					Students = students
+					Students = students,
+					StudentsCount = students != null ? students.Count : 0
 				};
 			}).ToList();
 

@@ -28,10 +28,26 @@ builder.Services
     .AddApplicationLayer();
 
 
+//add cors policy
 
+string? allowedOrigins= builder.Configuration.GetValue<string>("AllowedOrigins");
+string allowedHostsPolicyName = "AllowSpecificOrigin";
+
+if(allowedOrigins is not null)
+{
+    builder.Services.AddCors(options =>
+    {
+        options.AddPolicy(allowedHostsPolicyName,
+            builder => builder.WithOrigins(allowedOrigins)
+                              .AllowAnyHeader()
+                              .AllowAnyMethod());
+    });
+}
 
 
 var app = builder.Build();
+
+app.UseCors(allowedHostsPolicyName);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
