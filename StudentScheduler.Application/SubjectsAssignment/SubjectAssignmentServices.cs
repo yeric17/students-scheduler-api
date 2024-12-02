@@ -28,21 +28,23 @@ namespace StudentScheduler.Application.SubjectsAssignment
 				return results.Error!;
 			}
 
-			var subjectAssignmentResponses = results.Value.Select(subjectAssignment =>
+			var subjectAssignmentResponses = results.Value
+				.Select(subjectAssignment =>
 				new SubjectAssigmentGetResponse {
 					SubjectAssignmentId = subjectAssignment.SubjectAssignmentId,
 					SubjectId = subjectAssignment.Subject.SubjectId,
 					SubjectName = subjectAssignment.Subject.Name,
 					TeacherId = subjectAssignment.Teacher.Id,
 					TeacherName = $"{subjectAssignment.Teacher.FirstName} {subjectAssignment.Teacher.LastName}",
-					StudentsCount = subjectAssignment.Enrollments != null ? subjectAssignment.Enrollments.Count : 0
+					StudentsCount = subjectAssignment.Enrollments != null ? subjectAssignment.Enrollments.Count : 0,
+					Image = subjectAssignment.Subject.Image
 
                 }).ToList();
 
 			return subjectAssignmentResponses;
 		}
 
-		public async Task<ResultValue<List<SubjectAssigmentDetailGetResponse>>> GetSubjectsAssigmentDetail(string subjectAssigmentId)
+		public async Task<ResultValue<SubjectAssigmentDetailGetResponse>> GetSubjectAssigmentDetail(string subjectAssigmentId)
 		{
 			var result = await _subjectAssignmentRepository.GetSubjectAssigmentDetail(subjectAssigmentId);
 
@@ -51,29 +53,29 @@ namespace StudentScheduler.Application.SubjectsAssignment
 				return result.Error!;
 			}
 
-			var subjectAssignments = result.Value;
+			var sa = result.Value;
 
-			var response = subjectAssignments.Select(sa =>
+
+			var students = sa.Enrollments.Select(s =>
 			{
-				var students = sa.Enrollments.Select(s =>
+				return new SubjectAssigmentStudent
 				{
-					return new SubjectAssigmentStudent
-					{
-						FullName = $"{s.Student.FirstName} {s.Student.LastName}",
-						UserId = s.StudentId
-					};
-				}).ToList();
-				return new SubjectAssigmentDetailGetResponse
-				{
-					SubjectAssignmentId = sa.SubjectAssignmentId,
-					SubjectId = sa.Subject.SubjectId,
-					SubjectName = sa.Subject.Name,
-					TeacherId = sa.Teacher.Id,
-					TeacherName = $"{sa.Teacher.FirstName} {sa.Teacher.LastName}",
-					Students = students,
-					StudentsCount = students != null ? students.Count : 0
+					FullName = $"{s.Student.FirstName} {s.Student.LastName}",
+					UserId = s.StudentId
 				};
 			}).ToList();
+			var response = new SubjectAssigmentDetailGetResponse
+			{
+				SubjectAssignmentId = sa.SubjectAssignmentId,
+				SubjectId = sa.Subject.SubjectId,
+				SubjectName = sa.Subject.Name,
+				TeacherId = sa.Teacher.Id,
+				TeacherName = $"{sa.Teacher.FirstName} {sa.Teacher.LastName}",
+				Students = students,
+				StudentsCount = students != null ? students.Count : 0,
+				Image = sa.Subject.Image
+			};
+		
 
 			return response;
 		}

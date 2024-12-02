@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\StudentScheduler.Domain\StudentScheduler.Domain.csproj" />
+    <ProjectReference Include="..\StudentScheduler.infrastructure\StudentScheduler.infrastructure.csproj" />
     <ProjectReference Include="..\StudentScheduler.Share\StudentScheduler.Share.csproj" />
   </ItemGroup>
 

@@ -7,5 +7,6 @@ namespace StudentScheduler.Domain.Abstractions
     {
         Task<Result> AddEnrollment(string enrrollmentId, string userId);
 		Task<ResultValue<List<Enrollment>>> GetStudentEnrollments(string userId);
-	}
+        Task<Result> RemoveEnrollment(string subjectAssigmentId, string userId);
+    }
 }

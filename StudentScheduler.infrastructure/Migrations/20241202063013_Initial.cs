@@ -39,7 +39,8 @@ namespace StudentScheduler.infrastructure.Migrations
                     SubjectId = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
                     Name = table.Column<string>(type: "longtext", nullable: false),
                     Description = table.Column<string>(type: "longtext", nullable: false),
-                    Credits = table.Column<int>(type: "int", nullable: false)
+                    Credits = table.Column<int>(type: "int", nullable: false),
+                    Image = table.Column<string>(type: "longtext", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -243,26 +244,26 @@ namespace StudentScheduler.infrastructure.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "209943fa-e10f-4b09-8910-3dcb8546b75a", null, "Student", "STUDENT" },
-                    { "6a0330f1-75bc-4533-8ae6-2d99f969ccc6", null, "Admin", "ADMIN" },
-                    { "fba5bdae-d7c9-438b-8e72-723437406c8e", null, "Teacher", "TEACHER" }
+                    { "21b69887-8135-4cce-9d61-dccd33b06447", null, "Teacher", "TEACHER" },
+                    { "41f0ea18-7b14-4165-aee7-3d140e9b2007", null, "Admin", "ADMIN" },
+                    { "7c4f5d15-e437-471b-b72d-97abdde2201f", null, "Student", "STUDENT" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Subjects",
-                columns: new[] { "SubjectId", "Credits", "Description", "Name" },
+                columns: new[] { "SubjectId", "Credits", "Description", "Image", "Name" },
                 values: new object[,]
                 {
-                    { "32ede726-e9a1-49d2-a398-d43a47a27bff", 3, "Desarrollo Web", "Desarrollo Web" },
-                    { "37445bac-d730-45fa-8ecc-6dadb8aab435", 3, "Control de Versiones y Herramientas de Colaboración", "Control de Versiones y Herramientas de Colaboración" },
-                    { "63581e6d-e82c-40f5-a688-b471b38250f7", 3, "Estructuras de Datos y Algoritmos", "Estructuras de Datos y Algoritmos" },
-                    { "a852662e-fb82-44a7-83d4-6bbee7e8a125", 3, "Introducción a la Programación", "Introducción a la Programación" },
-                    { "c657e2a0-a036-4e78-a053-3ad7e68d794f", 3, "Computación en la Nube", "Computación en la Nube" },
-                    { "d2c67918-25de-4abf-bca8-58cd8e2713a9", 3, "Desarrollo de Aplicaciones Móviles", "Desarrollo de Aplicaciones Móviles" },
-                    { "d731cfe0-3ec0-4e7b-9d59-b4e8f87cd6d9", 3, "Sistemas de Gestión de Bases de Datos", "Sistemas de Gestión de Bases de Datos" },
-                    { "f3a4f062-6848-4b4f-b32d-5d382f3021f8", 3, "Ingeniería de Software", "Ingeniería de Software" },
-                    { "f9e5dd1f-492c-4179-984d-4e08378fa891", 3, "Fundamentos de Ciberseguridad", "Fundamentos de Ciberseguridad" },
-                    { "ff40cc71-b667-414e-9783-f6c2df8b628a", 3, "Inteligencia Artificial y Aprendizaje Automático", "Inteligencia Artificial y Aprendizaje Automático" }
+                    { "0ad7e81f-ba37-427f-a2d3-03622b687139", 3, "Control de Versiones y Herramientas de Colaboración", "images/contol-de-versiones-herramientas.jpg", "Control de Versiones y Herramientas de Colaboración" },
+                    { "1f55d826-4ea6-4abf-b5af-48f6bf2a89a5", 3, "Inteligencia Artificial y Aprendizaje Automático", "images/inteligencia-artificial.jpg", "Inteligencia Artificial y Aprendizaje Automático" },
+                    { "2b2e7534-7e2e-4b79-a576-ddc0e545b872", 3, "Desarrollo Web", "images/desarrollo-web.jpg", "Desarrollo Web" },
+                    { "3282b1de-9958-4c9a-bbb3-2419e17afd58", 3, "Estructuras de Datos y Algoritmos", "images/estructura-de-datos-algorithmos.jpg", "Estructuras de Datos y Algoritmos" },
+                    { "5fb201bc-ed9e-41fe-bc68-d3ff0576fba7", 3, "Fundamentos de Ciberseguridad", "images/ciberseguridad.jpg", "Fundamentos de Ciberseguridad" },
+                    { "7c6fa2c3-b162-4e77-b012-97158776c83e", 3, "Ingeniería de Software", "images/ingenieria-software.jpg", "Ingeniería de Software" },
+                    { "839d08f1-9d61-4bb9-a567-6836c4bfc811", 3, "Desarrollo de Aplicaciones Móviles", "images/aplicaciones-moviles.jpg", "Desarrollo de Aplicaciones Móviles" },
+                    { "9d810479-0804-4ef2-aede-73f1f4279677", 3, "Computación en la Nube", "images/computacion-en-la-nube.jpg", "Computación en la Nube" },
+                    { "c021a745-3487-480f-9136-12fe8c80a8b7", 3, "Sistemas de Gestión de Bases de Datos", "images/sistema-gestion-bases-datos.jpg", "Sistemas de Gestión de Bases de Datos" },
+                    { "e1a4e6f2-a71a-4037-8c97-a2555046db6d", 3, "Introducción a la Programación", "images/Introduccion-a-la-programacion.jpg", "Introducción a la Programación" }
                 });
 
             migrationBuilder.InsertData(
@@ -270,11 +271,11 @@ namespace StudentScheduler.infrastructure.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "03009ae3-28ae-4b0a-bb1f-d23561806407", 0, "40204e55-3ce7-4c08-81af-df7757144464", "luis.fernandez@inventado.com", true, "Luis", "Fernández", false, null, "LUIS.FERNANDEZ@INVENTADO.COM", "LUISFERNANDEZ", "AQAAAAIAAYagAAAAEGqcjfxTidgBdaPfzFW21pvDYFQyOO9GOn5CzXktJ1D61SAv2peJHBogKu3GUqoZsA==", null, false, "6b1275c6-24cc-4836-8d75-68d079d6fce2", false, "LuisFernandez" },
-                    { "1e42d7a8-4a79-42cb-9f62-22a8e5845f53", 0, "bc58fd2e-1e94-46e0-916a-cd995e0e2b66", "carlos.ramirez@inventado.com", true, "Carlos", "Ramírez", false, null, "CARLOS.RAMIREZ@INVENTADO.COM", "CARLOSRAMIREZ", "AQAAAAIAAYagAAAAEAncrA8E+TpEUgoSEmn3aPm4mk7wpPd27YBxEJ2XtFp6C/uyJxgdrGSFOfXpRUmzZQ==", null, false, "2b898706-fe15-4471-9913-c65256278b5e", false, "CarlosRamirez" },
-                    { "91972418-cc87-4a17-806c-7a98e735d555", 0, "6a86db5d-f0fa-4516-9f51-adf4972ed9db", "maria.gonzalez@inventado.com", true, "María", "González", false, null, "MARIA.GONZALEZ@INVENTADO.COM", "MARIAGONZALEZ", "AQAAAAIAAYagAAAAEHadyc7hEIZUm7oKFGKtUH0W4FXPlR6SwjWoTb56xYNl/LA54Sm+Gx8adA73sPotRw==", null, false, "bfd4b131-145f-4dfb-98e3-05e5faeb9440", false, "MariaGonzalez" },
-                    { "d3399591-9479-490a-821f-d492b9a781f2", 0, "eb2abf85-30d0-4833-aa63-3a6fbbe93646", "ana.martinez@inventado.com", true, "Ana", "Martínez", false, null, "ANA.MARTINEZ@INVENTADO.COM", "ANAMARTINEZ", "AQAAAAIAAYagAAAAECX+uuXHDkTK7E61beSUz/hUhmJ2SeGptrTXkzXpxRXZZyYrN5pmf3V10s/0rkEADQ==", null, false, "c9f1836a-73cc-456e-8960-09e11c2bf925", false, "AnaMartinez" },
-                    { "e4b56a9f-32dd-4ab7-ac16-46945a2ac610", 0, "d9e9456d-1575-4c08-a089-6ec0204d21ff", "juan.perez@inventado.com", true, "Juan", "Pérez", false, null, "JUAN.PEREZ@INVENTADO.COM", "JUANPEREZ", "AQAAAAIAAYagAAAAEPX98ttJBH9qI70S81BP4teq4x6RMgiHjxb0p+kD6KbVfXIq1MOiA+b3bARgN6fIVA==", null, false, "49bbdcac-8a61-4254-b73c-508d970c5eba", false, "JuanPerez" }
+                    { "02d32c03-19d1-464d-9d04-77f2ba0d1fdf", 0, "042a536f-5254-412b-b2d1-4e912739cf08", "maria.gonzalez@inventado.com", true, "María", "González", false, null, "MARIA.GONZALEZ@INVENTADO.COM", "MARIAGONZALEZ", "AQAAAAIAAYagAAAAEGth9e2nw/jxu5180vzWdP+JG+e4ILA5ns57/muOZ/tDXeWi+3z68Jv2dhAUAj13vg==", null, false, "092c6e55-e1b6-425a-a866-1d9a7c32c585", false, "MariaGonzalez" },
+                    { "4a981043-3e27-4eb9-985b-7d9c3f5181d1", 0, "de5569c3-9b81-464e-b88a-707656693d27", "juan.perez@inventado.com", true, "Juan", "Pérez", false, null, "JUAN.PEREZ@INVENTADO.COM", "JUANPEREZ", "AQAAAAIAAYagAAAAEALF73FfcbTxH+Dd/qaITaOFsR1y6lhiTIpRB1zJ3fX4J1MXdC0UW6950ZRpRmIiZA==", null, false, "8bf081a6-4a18-4c1f-9e70-4ccd2d347d02", false, "JuanPerez" },
+                    { "c67c8a9c-08d7-4ac1-9f5d-21bc5d597d4a", 0, "3a97565c-752d-4182-9cb4-6b3798668575", "ana.martinez@inventado.com", true, "Ana", "Martínez", false, null, "ANA.MARTINEZ@INVENTADO.COM", "ANAMARTINEZ", "AQAAAAIAAYagAAAAEJJphZpg0GPHCDFyRao+7/lbGHmG8nri+DJPQLr5o/3KNn2L8pyY4L1f3NU4oPIL3w==", null, false, "0a9c7135-2733-4a20-9d7a-34d3fe9feb27", false, "AnaMartinez" },
+                    { "dbe29fc2-594b-4dc7-aa2b-870aaca49677", 0, "909a6efa-cf9e-4d5d-9764-8cda4b80ebd7", "luis.fernandez@inventado.com", true, "Luis", "Fernández", false, null, "LUIS.FERNANDEZ@INVENTADO.COM", "LUISFERNANDEZ", "AQAAAAIAAYagAAAAEGib6TZJhFYEuhyMmGaS0hFtIU8xJAO6KzRbrYPk3KgSQzPyhW/ZmEeSCt5/9b8tSg==", null, false, "9506e43b-68e3-4563-9fc5-483e4100181f", false, "LuisFernandez" },
+                    { "e0376c18-cf7f-4dbd-9008-370882730e2a", 0, "fa0bd3f2-fddd-4b81-834b-4da2d7e945b6", "carlos.ramirez@inventado.com", true, "Carlos", "Ramírez", false, null, "CARLOS.RAMIREZ@INVENTADO.COM", "CARLOSRAMIREZ", "AQAAAAIAAYagAAAAEJmr797N+u+CuPHtU1vVfra8syQTP6K3rVKLdnOcLsfv+95tMKbwWJKGgAof3j7sBQ==", null, false, "7662f3b3-7aec-47bb-a179-7b704d8b0d36", false, "CarlosRamirez" }
                 });
 
             migrationBuilder.InsertData(
@@ -282,16 +283,16 @@ namespace StudentScheduler.infrastructure.Migrations
                 columns: new[] { "SubjectAssignmentId", "SubjectId", "TeacherId" },
                 values: new object[,]
                 {
-                    { "0de38964-42cb-455f-a9da-114268c65771", "f9e5dd1f-492c-4179-984d-4e08378fa891", "d3399591-9479-490a-821f-d492b9a781f2" },
-                    { "19c33ef6-5a83-48ee-bc5a-83f2393b5bbd", "d2c67918-25de-4abf-bca8-58cd8e2713a9", "e4b56a9f-32dd-4ab7-ac16-46945a2ac610" },
-                    { "2ab62f86-8cdd-475c-ace0-4f0b5ef84409", "f3a4f062-6848-4b4f-b32d-5d382f3021f8", "d3399591-9479-490a-821f-d492b9a781f2" },
-                    { "33553385-82b3-4024-a61e-c8aa785db2cd", "c657e2a0-a036-4e78-a053-3ad7e68d794f", "91972418-cc87-4a17-806c-7a98e735d555" },
-                    { "8c0a4e7c-b405-4a21-844a-4b7eb093563e", "d731cfe0-3ec0-4e7b-9d59-b4e8f87cd6d9", "1e42d7a8-4a79-42cb-9f62-22a8e5845f53" },
-                    { "9493e727-9408-496f-b549-8b2d042e0d85", "63581e6d-e82c-40f5-a688-b471b38250f7", "91972418-cc87-4a17-806c-7a98e735d555" },
-                    { "ac23e24e-e7fb-43a7-b4b3-fb16812e6519", "37445bac-d730-45fa-8ecc-6dadb8aab435", "03009ae3-28ae-4b0a-bb1f-d23561806407" },
-                    { "b2200ef3-e989-4a73-8475-9373f5f22318", "32ede726-e9a1-49d2-a398-d43a47a27bff", "03009ae3-28ae-4b0a-bb1f-d23561806407" },
-                    { "c422b0f7-0518-4e87-a779-f48cb2934cf7", "a852662e-fb82-44a7-83d4-6bbee7e8a125", "e4b56a9f-32dd-4ab7-ac16-46945a2ac610" },
-                    { "ce948c81-709a-439c-84af-c1521a9971bf", "ff40cc71-b667-414e-9783-f6c2df8b628a", "1e42d7a8-4a79-42cb-9f62-22a8e5845f53" }
+                    { "05518608-73e0-4ef4-b22d-4a405ed763e1", "839d08f1-9d61-4bb9-a567-6836c4bfc811", "4a981043-3e27-4eb9-985b-7d9c3f5181d1" },
+                    { "169b83f0-25dc-436c-bf37-c904fb2f5aad", "2b2e7534-7e2e-4b79-a576-ddc0e545b872", "dbe29fc2-594b-4dc7-aa2b-870aaca49677" },
+                    { "30c54e59-f43d-499c-8c2c-e2df064280d8", "5fb201bc-ed9e-41fe-bc68-d3ff0576fba7", "c67c8a9c-08d7-4ac1-9f5d-21bc5d597d4a" },
+                    { "5f7d60b4-2f80-40bd-a8d0-ef49f75f467b", "3282b1de-9958-4c9a-bbb3-2419e17afd58", "02d32c03-19d1-464d-9d04-77f2ba0d1fdf" },
+                    { "643de4cf-9a1b-4c25-ab77-7b1d60f03e8c", "c021a745-3487-480f-9136-12fe8c80a8b7", "e0376c18-cf7f-4dbd-9008-370882730e2a" },
+                    { "7b25a2d8-23e6-47da-84da-2ae8f3a63bf8", "9d810479-0804-4ef2-aede-73f1f4279677", "02d32c03-19d1-464d-9d04-77f2ba0d1fdf" },
+                    { "8a358eaa-5b30-4559-8019-0bb4b4032e18", "7c6fa2c3-b162-4e77-b012-97158776c83e", "c67c8a9c-08d7-4ac1-9f5d-21bc5d597d4a" },
+                    { "8da9f807-c09b-4db6-abc8-322bb6488b5e", "e1a4e6f2-a71a-4037-8c97-a2555046db6d", "4a981043-3e27-4eb9-985b-7d9c3f5181d1" },
+                    { "d274aa0d-2803-45c5-ad8a-5d35a1e20dd1", "1f55d826-4ea6-4abf-b5af-48f6bf2a89a5", "e0376c18-cf7f-4dbd-9008-370882730e2a" },
+                    { "ec1c2790-84c7-49e1-bdc0-566b2e390af3", "0ad7e81f-ba37-427f-a2d3-03622b687139", "dbe29fc2-594b-4dc7-aa2b-870aaca49677" }
                 });
 
             migrationBuilder.InsertData(
@@ -299,11 +300,11 @@ namespace StudentScheduler.infrastructure.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "fba5bdae-d7c9-438b-8e72-723437406c8e", "03009ae3-28ae-4b0a-bb1f-d23561806407" },
-                    { "fba5bdae-d7c9-438b-8e72-723437406c8e", "1e42d7a8-4a79-42cb-9f62-22a8e5845f53" },
-                    { "fba5bdae-d7c9-438b-8e72-723437406c8e", "91972418-cc87-4a17-806c-7a98e735d555" },
-                    { "fba5bdae-d7c9-438b-8e72-723437406c8e", "d3399591-9479-490a-821f-d492b9a781f2" },
-                    { "fba5bdae-d7c9-438b-8e72-723437406c8e", "e4b56a9f-32dd-4ab7-ac16-46945a2ac610" }
+                    { "21b69887-8135-4cce-9d61-dccd33b06447", "02d32c03-19d1-464d-9d04-77f2ba0d1fdf" },
+                    { "21b69887-8135-4cce-9d61-dccd33b06447", "4a981043-3e27-4eb9-985b-7d9c3f5181d1" },
+                    { "21b69887-8135-4cce-9d61-dccd33b06447", "c67c8a9c-08d7-4ac1-9f5d-21bc5d597d4a" },
+                    { "21b69887-8135-4cce-9d61-dccd33b06447", "dbe29fc2-594b-4dc7-aa2b-870aaca49677" },
+                    { "21b69887-8135-4cce-9d61-dccd33b06447", "e0376c18-cf7f-4dbd-9008-370882730e2a" }
                 });
 
             migrationBuilder.CreateIndex(

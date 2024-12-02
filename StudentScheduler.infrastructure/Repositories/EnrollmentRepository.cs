@@ -38,6 +38,24 @@ namespace StudentScheduler.infrastructure.Repositories
             }
         }
 
+        public async Task<Result> RemoveEnrollment(string subjectAssigmentId, string userId)
+        {
+
+            try
+            {
+
+                await _dbContext.Enrollments
+                    .Where(e => e.SubjectAssignmentId == subjectAssigmentId && e.StudentId == userId)
+                    .ExecuteDeleteAsync();
+                return Result.Success();
+            }
+            catch (Exception e)
+            {
+
+                return EnrollmentErrors.EronllmentConflict(e);
+            }
+        }
+
         public async Task<ResultValue<List<Enrollment>>> GetStudentEnrollments(string userId)
 		{
 			var results = await _dbContext.Enrollments

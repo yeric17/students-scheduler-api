@@ -16,5 +16,6 @@ namespace StudentScheduler.Domain.Entities
         public required string Description { get; set; }
         [Range(1, 10)]
         public int Credits { get; set; }
+        public required string Image { get; set; }
     }
 }

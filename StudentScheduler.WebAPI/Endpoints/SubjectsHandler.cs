@@ -20,8 +20,10 @@ namespace StudentScheduler.WebAPI.Endpoints
 
 		public static async Task<IResult> GetSubjectDetail(ISubjectAssignmentServices subjectsService,[FromRoute] string subjectAssignmentId)
 		{
-			var subjects = await subjectsService.GetSubjectsAssigmentDetail(subjectAssignmentId);
+			var subjects = await subjectsService.GetSubjectAssigmentDetail(subjectAssignmentId);
 			return Results.Ok(subjects);
 		}
+
+		
 	}
 }

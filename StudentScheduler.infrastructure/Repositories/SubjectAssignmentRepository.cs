@@ -42,6 +42,7 @@ namespace StudentScheduler.infrastructure.Repositories
 				.SubjectAssignments
 				.Include(sa => sa.Teacher)
 				.Include(sa => sa.Subject)
+				.Include(sa => sa.Enrollments)
 				.AsSplitQuery()
 				.AsNoTracking()
 				.ToListAsync();
@@ -95,7 +96,7 @@ namespace StudentScheduler.infrastructure.Repositories
 			return results;
 		}
 
-		public async Task<ResultValue<List<SubjectAssignment>>> GetSubjectAssigmentDetail(string subjectAssignmentId)
+		public async Task<ResultValue<SubjectAssignment>> GetSubjectAssigmentDetail(string subjectAssignmentId)
 		{
 			var results = await _dbContext.SubjectAssignments
 				.Include(sa => sa.Teacher)
@@ -105,11 +106,11 @@ namespace StudentScheduler.infrastructure.Repositories
 				.Where(sa => sa.SubjectAssignmentId == subjectAssignmentId)
 				.AsSplitQuery()
 				.AsNoTracking()
-				.ToListAsync();
+				.FirstOrDefaultAsync();
 
 			if (results is null)
 			{
-				return new List<SubjectAssignment>();
+				return SubjectAssignmentErrors.NotFound("SubjectAssignmentErrors.NotFound","");
 			}
 			return results;
 		}

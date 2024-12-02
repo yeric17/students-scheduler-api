@@ -15,6 +15,8 @@ namespace StudentScheduler.Application.SubjectsAssignment.Responses
 		public required string TeacherName { get; set; }
 
 		public required int StudentsCount { get; set; }
+
+		public required string Image { get; set; }
 	}
 
 	public class SubjectAssigmentDetailGetResponse : SubjectAssigmentGetResponse

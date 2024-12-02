@@ -47,19 +47,19 @@ namespace StudentScheduler.infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "6a0330f1-75bc-4533-8ae6-2d99f969ccc6",
+                            Id = "41f0ea18-7b14-4165-aee7-3d140e9b2007",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "209943fa-e10f-4b09-8910-3dcb8546b75a",
+                            Id = "7c4f5d15-e437-471b-b72d-97abdde2201f",
                             Name = "Student",
                             NormalizedName = "STUDENT"
                         },
                         new
                         {
-                            Id = "fba5bdae-d7c9-438b-8e72-723437406c8e",
+                            Id = "21b69887-8135-4cce-9d61-dccd33b06447",
                             Name = "Teacher",
                             NormalizedName = "TEACHER"
                         });
@@ -150,28 +150,28 @@ namespace StudentScheduler.infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "e4b56a9f-32dd-4ab7-ac16-46945a2ac610",
-                            RoleId = "fba5bdae-d7c9-438b-8e72-723437406c8e"
+                            UserId = "4a981043-3e27-4eb9-985b-7d9c3f5181d1",
+                            RoleId = "21b69887-8135-4cce-9d61-dccd33b06447"
                         },
                         new
                         {
-                            UserId = "91972418-cc87-4a17-806c-7a98e735d555",
-                            RoleId = "fba5bdae-d7c9-438b-8e72-723437406c8e"
+                            UserId = "02d32c03-19d1-464d-9d04-77f2ba0d1fdf",
+                            RoleId = "21b69887-8135-4cce-9d61-dccd33b06447"
                         },
                         new
                         {
-                            UserId = "1e42d7a8-4a79-42cb-9f62-22a8e5845f53",
-                            RoleId = "fba5bdae-d7c9-438b-8e72-723437406c8e"
+                            UserId = "e0376c18-cf7f-4dbd-9008-370882730e2a",
+                            RoleId = "21b69887-8135-4cce-9d61-dccd33b06447"
                         },
                         new
                         {
-                            UserId = "d3399591-9479-490a-821f-d492b9a781f2",
-                            RoleId = "fba5bdae-d7c9-438b-8e72-723437406c8e"
+                            UserId = "c67c8a9c-08d7-4ac1-9f5d-21bc5d597d4a",
+                            RoleId = "21b69887-8135-4cce-9d61-dccd33b06447"
                         },
                         new
                         {
-                            UserId = "03009ae3-28ae-4b0a-bb1f-d23561806407",
-                            RoleId = "fba5bdae-d7c9-438b-8e72-723437406c8e"
+                            UserId = "dbe29fc2-594b-4dc7-aa2b-870aaca49677",
+                            RoleId = "21b69887-8135-4cce-9d61-dccd33b06447"
                         });
                 });
 
@@ -230,6 +230,10 @@ namespace StudentScheduler.infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -241,72 +245,82 @@ namespace StudentScheduler.infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            SubjectId = "a852662e-fb82-44a7-83d4-6bbee7e8a125",
+                            SubjectId = "e1a4e6f2-a71a-4037-8c97-a2555046db6d",
                             Credits = 3,
                             Description = "Introducción a la Programación",
+                            Image = "images/Introduccion-a-la-programacion.jpg",
                             Name = "Introducción a la Programación"
                         },
                         new
                         {
-                            SubjectId = "63581e6d-e82c-40f5-a688-b471b38250f7",
+                            SubjectId = "3282b1de-9958-4c9a-bbb3-2419e17afd58",
                             Credits = 3,
                             Description = "Estructuras de Datos y Algoritmos",
+                            Image = "images/estructura-de-datos-algorithmos.jpg",
                             Name = "Estructuras de Datos y Algoritmos"
                         },
                         new
                         {
-                            SubjectId = "d731cfe0-3ec0-4e7b-9d59-b4e8f87cd6d9",
+                            SubjectId = "c021a745-3487-480f-9136-12fe8c80a8b7",
                             Credits = 3,
                             Description = "Sistemas de Gestión de Bases de Datos",
+                            Image = "images/sistema-gestion-bases-datos.jpg",
                             Name = "Sistemas de Gestión de Bases de Datos"
                         },
                         new
                         {
-                            SubjectId = "f3a4f062-6848-4b4f-b32d-5d382f3021f8",
+                            SubjectId = "7c6fa2c3-b162-4e77-b012-97158776c83e",
                             Credits = 3,
                             Description = "Ingeniería de Software",
+                            Image = "images/ingenieria-software.jpg",
                             Name = "Ingeniería de Software"
                         },
                         new
                         {
-                            SubjectId = "32ede726-e9a1-49d2-a398-d43a47a27bff",
+                            SubjectId = "2b2e7534-7e2e-4b79-a576-ddc0e545b872",
                             Credits = 3,
                             Description = "Desarrollo Web",
+                            Image = "images/desarrollo-web.jpg",
                             Name = "Desarrollo Web"
                         },
                         new
                         {
-                            SubjectId = "d2c67918-25de-4abf-bca8-58cd8e2713a9",
+                            SubjectId = "839d08f1-9d61-4bb9-a567-6836c4bfc811",
                             Credits = 3,
                             Description = "Desarrollo de Aplicaciones Móviles",
+                            Image = "images/aplicaciones-moviles.jpg",
                             Name = "Desarrollo de Aplicaciones Móviles"
                         },
                         new
                         {
-                            SubjectId = "c657e2a0-a036-4e78-a053-3ad7e68d794f",
+                            SubjectId = "9d810479-0804-4ef2-aede-73f1f4279677",
                             Credits = 3,
                             Description = "Computación en la Nube",
+                            Image = "images/computacion-en-la-nube.jpg",
                             Name = "Computación en la Nube"
                         },
                         new
                         {
-                            SubjectId = "ff40cc71-b667-414e-9783-f6c2df8b628a",
+                            SubjectId = "1f55d826-4ea6-4abf-b5af-48f6bf2a89a5",
                             Credits = 3,
                             Description = "Inteligencia Artificial y Aprendizaje Automático",
+                            Image = "images/inteligencia-artificial.jpg",
                             Name = "Inteligencia Artificial y Aprendizaje Automático"
                         },
                         new
                         {
-                            SubjectId = "f9e5dd1f-492c-4179-984d-4e08378fa891",
+                            SubjectId = "5fb201bc-ed9e-41fe-bc68-d3ff0576fba7",
                             Credits = 3,
                             Description = "Fundamentos de Ciberseguridad",
+                            Image = "images/ciberseguridad.jpg",
                             Name = "Fundamentos de Ciberseguridad"
                         },
                         new
                         {
-                            SubjectId = "37445bac-d730-45fa-8ecc-6dadb8aab435",
+                            SubjectId = "0ad7e81f-ba37-427f-a2d3-03622b687139",
                             Credits = 3,
                             Description = "Control de Versiones y Herramientas de Colaboración",
+                            Image = "images/contol-de-versiones-herramientas.jpg",
                             Name = "Control de Versiones y Herramientas de Colaboración"
                         });
                 });
@@ -336,63 +350,63 @@ namespace StudentScheduler.infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            SubjectAssignmentId = "c422b0f7-0518-4e87-a779-f48cb2934cf7",
-                            SubjectId = "a852662e-fb82-44a7-83d4-6bbee7e8a125",
-                            TeacherId = "e4b56a9f-32dd-4ab7-ac16-46945a2ac610"
+                            SubjectAssignmentId = "8da9f807-c09b-4db6-abc8-322bb6488b5e",
+                            SubjectId = "e1a4e6f2-a71a-4037-8c97-a2555046db6d",
+                            TeacherId = "4a981043-3e27-4eb9-985b-7d9c3f5181d1"
                         },
                         new
                         {
-                            SubjectAssignmentId = "9493e727-9408-496f-b549-8b2d042e0d85",
-                            SubjectId = "63581e6d-e82c-40f5-a688-b471b38250f7",
-                            TeacherId = "91972418-cc87-4a17-806c-7a98e735d555"
+                            SubjectAssignmentId = "5f7d60b4-2f80-40bd-a8d0-ef49f75f467b",
+                            SubjectId = "3282b1de-9958-4c9a-bbb3-2419e17afd58",
+                            TeacherId = "02d32c03-19d1-464d-9d04-77f2ba0d1fdf"
                         },
                         new
                         {
-                            SubjectAssignmentId = "8c0a4e7c-b405-4a21-844a-4b7eb093563e",
-                            SubjectId = "d731cfe0-3ec0-4e7b-9d59-b4e8f87cd6d9",
-                            TeacherId = "1e42d7a8-4a79-42cb-9f62-22a8e5845f53"
+                            SubjectAssignmentId = "643de4cf-9a1b-4c25-ab77-7b1d60f03e8c",
+                            SubjectId = "c021a745-3487-480f-9136-12fe8c80a8b7",
+                            TeacherId = "e0376c18-cf7f-4dbd-9008-370882730e2a"
                         },
                         new
                         {
-                            SubjectAssignmentId = "2ab62f86-8cdd-475c-ace0-4f0b5ef84409",
-                            SubjectId = "f3a4f062-6848-4b4f-b32d-5d382f3021f8",
-                            TeacherId = "d3399591-9479-490a-821f-d492b9a781f2"
+                            SubjectAssignmentId = "8a358eaa-5b30-4559-8019-0bb4b4032e18",
+                            SubjectId = "7c6fa2c3-b162-4e77-b012-97158776c83e",
+                            TeacherId = "c67c8a9c-08d7-4ac1-9f5d-21bc5d597d4a"
                         },
                         new
                         {
-                            SubjectAssignmentId = "b2200ef3-e989-4a73-8475-9373f5f22318",
-                            SubjectId = "32ede726-e9a1-49d2-a398-d43a47a27bff",
-                            TeacherId = "03009ae3-28ae-4b0a-bb1f-d23561806407"
+                            SubjectAssignmentId = "169b83f0-25dc-436c-bf37-c904fb2f5aad",
+                            SubjectId = "2b2e7534-7e2e-4b79-a576-ddc0e545b872",
+                            TeacherId = "dbe29fc2-594b-4dc7-aa2b-870aaca49677"
                         },
                         new
                         {
-                            SubjectAssignmentId = "19c33ef6-5a83-48ee-bc5a-83f2393b5bbd",
-                            SubjectId = "d2c67918-25de-4abf-bca8-58cd8e2713a9",
-                            TeacherId = "e4b56a9f-32dd-4ab7-ac16-46945a2ac610"
+                            SubjectAssignmentId = "05518608-73e0-4ef4-b22d-4a405ed763e1",
+                            SubjectId = "839d08f1-9d61-4bb9-a567-6836c4bfc811",
+                            TeacherId = "4a981043-3e27-4eb9-985b-7d9c3f5181d1"
                         },
                         new
                         {
-                            SubjectAssignmentId = "33553385-82b3-4024-a61e-c8aa785db2cd",
-                            SubjectId = "c657e2a0-a036-4e78-a053-3ad7e68d794f",
-                            TeacherId = "91972418-cc87-4a17-806c-7a98e735d555"
+                            SubjectAssignmentId = "7b25a2d8-23e6-47da-84da-2ae8f3a63bf8",
+                            SubjectId = "9d810479-0804-4ef2-aede-73f1f4279677",
+                            TeacherId = "02d32c03-19d1-464d-9d04-77f2ba0d1fdf"
                         },
                         new
                         {
-                            SubjectAssignmentId = "ce948c81-709a-439c-84af-c1521a9971bf",
-                            SubjectId = "ff40cc71-b667-414e-9783-f6c2df8b628a",
-                            TeacherId = "1e42d7a8-4a79-42cb-9f62-22a8e5845f53"
+                            SubjectAssignmentId = "d274aa0d-2803-45c5-ad8a-5d35a1e20dd1",
+                            SubjectId = "1f55d826-4ea6-4abf-b5af-48f6bf2a89a5",
+                            TeacherId = "e0376c18-cf7f-4dbd-9008-370882730e2a"
                         },
                         new
                         {
-                            SubjectAssignmentId = "0de38964-42cb-455f-a9da-114268c65771",
-                            SubjectId = "f9e5dd1f-492c-4179-984d-4e08378fa891",
-                            TeacherId = "d3399591-9479-490a-821f-d492b9a781f2"
+                            SubjectAssignmentId = "30c54e59-f43d-499c-8c2c-e2df064280d8",
+                            SubjectId = "5fb201bc-ed9e-41fe-bc68-d3ff0576fba7",
+                            TeacherId = "c67c8a9c-08d7-4ac1-9f5d-21bc5d597d4a"
                         },
                         new
                         {
-                            SubjectAssignmentId = "ac23e24e-e7fb-43a7-b4b3-fb16812e6519",
-                            SubjectId = "37445bac-d730-45fa-8ecc-6dadb8aab435",
-                            TeacherId = "03009ae3-28ae-4b0a-bb1f-d23561806407"
+                            SubjectAssignmentId = "ec1c2790-84c7-49e1-bdc0-566b2e390af3",
+                            SubjectId = "0ad7e81f-ba37-427f-a2d3-03622b687139",
+                            TeacherId = "dbe29fc2-594b-4dc7-aa2b-870aaca49677"
                         });
                 });
 
@@ -470,9 +484,9 @@ namespace StudentScheduler.infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "e4b56a9f-32dd-4ab7-ac16-46945a2ac610",
+                            Id = "4a981043-3e27-4eb9-985b-7d9c3f5181d1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d9e9456d-1575-4c08-a089-6ec0204d21ff",
+                            ConcurrencyStamp = "de5569c3-9b81-464e-b88a-707656693d27",
                             Email = "juan.perez@inventado.com",
                             EmailConfirmed = true,
                             FirstName = "Juan",
@@ -480,17 +494,17 @@ namespace StudentScheduler.infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "JUAN.PEREZ@INVENTADO.COM",
                             NormalizedUserName = "JUANPEREZ",
-                            PasswordHash = "AQAAAAIAAYagAAAAEPX98ttJBH9qI70S81BP4teq4x6RMgiHjxb0p+kD6KbVfXIq1MOiA+b3bARgN6fIVA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEALF73FfcbTxH+Dd/qaITaOFsR1y6lhiTIpRB1zJ3fX4J1MXdC0UW6950ZRpRmIiZA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "49bbdcac-8a61-4254-b73c-508d970c5eba",
+                            SecurityStamp = "8bf081a6-4a18-4c1f-9e70-4ccd2d347d02",
                             TwoFactorEnabled = false,
                             UserName = "JuanPerez"
                         },
                         new
                         {
-                            Id = "91972418-cc87-4a17-806c-7a98e735d555",
+                            Id = "02d32c03-19d1-464d-9d04-77f2ba0d1fdf",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6a86db5d-f0fa-4516-9f51-adf4972ed9db",
+                            ConcurrencyStamp = "042a536f-5254-412b-b2d1-4e912739cf08",
                             Email = "maria.gonzalez@inventado.com",
                             EmailConfirmed = true,
                             FirstName = "María",
@@ -498,17 +512,17 @@ namespace StudentScheduler.infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "MARIA.GONZALEZ@INVENTADO.COM",
                             NormalizedUserName = "MARIAGONZALEZ",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHadyc7hEIZUm7oKFGKtUH0W4FXPlR6SwjWoTb56xYNl/LA54Sm+Gx8adA73sPotRw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGth9e2nw/jxu5180vzWdP+JG+e4ILA5ns57/muOZ/tDXeWi+3z68Jv2dhAUAj13vg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "bfd4b131-145f-4dfb-98e3-05e5faeb9440",
+                            SecurityStamp = "092c6e55-e1b6-425a-a866-1d9a7c32c585",
                             TwoFactorEnabled = false,
                             UserName = "MariaGonzalez"
                         },
                         new
                         {
-                            Id = "1e42d7a8-4a79-42cb-9f62-22a8e5845f53",
+                            Id = "e0376c18-cf7f-4dbd-9008-370882730e2a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "bc58fd2e-1e94-46e0-916a-cd995e0e2b66",
+                            ConcurrencyStamp = "fa0bd3f2-fddd-4b81-834b-4da2d7e945b6",
                             Email = "carlos.ramirez@inventado.com",
                             EmailConfirmed = true,
                             FirstName = "Carlos",
@@ -516,17 +530,17 @@ namespace StudentScheduler.infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CARLOS.RAMIREZ@INVENTADO.COM",
                             NormalizedUserName = "CARLOSRAMIREZ",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAncrA8E+TpEUgoSEmn3aPm4mk7wpPd27YBxEJ2XtFp6C/uyJxgdrGSFOfXpRUmzZQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJmr797N+u+CuPHtU1vVfra8syQTP6K3rVKLdnOcLsfv+95tMKbwWJKGgAof3j7sBQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2b898706-fe15-4471-9913-c65256278b5e",
+                            SecurityStamp = "7662f3b3-7aec-47bb-a179-7b704d8b0d36",
                             TwoFactorEnabled = false,
                             UserName = "CarlosRamirez"
                         },
                         new
                         {
-                            Id = "d3399591-9479-490a-821f-d492b9a781f2",
+                            Id = "c67c8a9c-08d7-4ac1-9f5d-21bc5d597d4a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "eb2abf85-30d0-4833-aa63-3a6fbbe93646",
+                            ConcurrencyStamp = "3a97565c-752d-4182-9cb4-6b3798668575",
                             Email = "ana.martinez@inventado.com",
                             EmailConfirmed = true,
                             FirstName = "Ana",
@@ -534,17 +548,17 @@ namespace StudentScheduler.infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ANA.MARTINEZ@INVENTADO.COM",
                             NormalizedUserName = "ANAMARTINEZ",
-                            PasswordHash = "AQAAAAIAAYagAAAAECX+uuXHDkTK7E61beSUz/hUhmJ2SeGptrTXkzXpxRXZZyYrN5pmf3V10s/0rkEADQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJJphZpg0GPHCDFyRao+7/lbGHmG8nri+DJPQLr5o/3KNn2L8pyY4L1f3NU4oPIL3w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c9f1836a-73cc-456e-8960-09e11c2bf925",
+                            SecurityStamp = "0a9c7135-2733-4a20-9d7a-34d3fe9feb27",
                             TwoFactorEnabled = false,
                             UserName = "AnaMartinez"
                         },
                         new
                         {
-                            Id = "03009ae3-28ae-4b0a-bb1f-d23561806407",
+                            Id = "dbe29fc2-594b-4dc7-aa2b-870aaca49677",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "40204e55-3ce7-4c08-81af-df7757144464",
+                            ConcurrencyStamp = "909a6efa-cf9e-4d5d-9764-8cda4b80ebd7",
                             Email = "luis.fernandez@inventado.com",
                             EmailConfirmed = true,
                             FirstName = "Luis",
@@ -552,9 +566,9 @@ namespace StudentScheduler.infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "LUIS.FERNANDEZ@INVENTADO.COM",
                             NormalizedUserName = "LUISFERNANDEZ",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGqcjfxTidgBdaPfzFW21pvDYFQyOO9GOn5CzXktJ1D61SAv2peJHBogKu3GUqoZsA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGib6TZJhFYEuhyMmGaS0hFtIU8xJAO6KzRbrYPk3KgSQzPyhW/ZmEeSCt5/9b8tSg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6b1275c6-24cc-4836-8d75-68d079d6fce2",
+                            SecurityStamp = "9506e43b-68e3-4563-9fc5-483e4100181f",
                             TwoFactorEnabled = false,
                             UserName = "LuisFernandez"
                         });

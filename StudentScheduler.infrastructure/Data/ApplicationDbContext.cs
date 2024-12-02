@@ -44,16 +44,16 @@ namespace StudentScheduler.infrastructure.Data
         {
             List<Subject> subjects = new()
             {
-                new Subject { SubjectId = Guid.NewGuid().ToString(), Name = "Introducción a la Programación", Description = "Introducción a la Programación", Credits = 3 },
-                new Subject { SubjectId = Guid.NewGuid().ToString(), Name = "Estructuras de Datos y Algoritmos", Description = "Estructuras de Datos y Algoritmos", Credits = 3 },
-                new Subject { SubjectId = Guid.NewGuid().ToString(), Name = "Sistemas de Gestión de Bases de Datos", Description = "Sistemas de Gestión de Bases de Datos", Credits = 3 },
-                new Subject { SubjectId = Guid.NewGuid().ToString(), Name = "Ingeniería de Software", Description = "Ingeniería de Software", Credits = 3 },
-                new Subject { SubjectId = Guid.NewGuid().ToString(), Name = "Desarrollo Web", Description = "Desarrollo Web", Credits = 3 },
-                new Subject { SubjectId = Guid.NewGuid().ToString(), Name = "Desarrollo de Aplicaciones Móviles", Description = "Desarrollo de Aplicaciones Móviles", Credits = 3 },
-                new Subject { SubjectId = Guid.NewGuid().ToString(), Name = "Computación en la Nube", Description = "Computación en la Nube", Credits = 3 },
-                new Subject { SubjectId = Guid.NewGuid().ToString(), Name = "Inteligencia Artificial y Aprendizaje Automático", Description = "Inteligencia Artificial y Aprendizaje Automático", Credits = 3 },
-                new Subject { SubjectId = Guid.NewGuid().ToString(), Name = "Fundamentos de Ciberseguridad", Description = "Fundamentos de Ciberseguridad", Credits = 3 },
-                new Subject { SubjectId = Guid.NewGuid().ToString(), Name = "Control de Versiones y Herramientas de Colaboración", Description = "Control de Versiones y Herramientas de Colaboración", Credits = 3 }
+                new Subject { SubjectId = Guid.NewGuid().ToString(), Name = "Introducción a la Programación", Description = "Introducción a la Programación", Credits = 3, Image = "images/Introduccion-a-la-programacion.jpg" },
+                new Subject { SubjectId = Guid.NewGuid().ToString(), Name = "Estructuras de Datos y Algoritmos", Description = "Estructuras de Datos y Algoritmos", Credits = 3, Image = "images/estructura-de-datos-algorithmos.jpg" },
+                new Subject { SubjectId = Guid.NewGuid().ToString(), Name = "Sistemas de Gestión de Bases de Datos", Description = "Sistemas de Gestión de Bases de Datos", Credits = 3, Image = "images/sistema-gestion-bases-datos.jpg"},
+                new Subject { SubjectId = Guid.NewGuid().ToString(), Name = "Ingeniería de Software", Description = "Ingeniería de Software", Credits = 3, Image = "images/ingenieria-software.jpg" },
+                new Subject { SubjectId = Guid.NewGuid().ToString(), Name = "Desarrollo Web", Description = "Desarrollo Web", Credits = 3, Image = "images/desarrollo-web.jpg" },
+                new Subject { SubjectId = Guid.NewGuid().ToString(), Name = "Desarrollo de Aplicaciones Móviles", Description = "Desarrollo de Aplicaciones Móviles", Credits = 3, Image = "images/aplicaciones-moviles.jpg" },
+                new Subject { SubjectId = Guid.NewGuid().ToString(), Name = "Computación en la Nube", Description = "Computación en la Nube", Credits = 3, Image= "images/computacion-en-la-nube.jpg" },
+                new Subject { SubjectId = Guid.NewGuid().ToString(), Name = "Inteligencia Artificial y Aprendizaje Automático", Description = "Inteligencia Artificial y Aprendizaje Automático", Credits = 3, Image ="images/inteligencia-artificial.jpg" },
+                new Subject { SubjectId = Guid.NewGuid().ToString(), Name = "Fundamentos de Ciberseguridad", Description = "Fundamentos de Ciberseguridad", Credits = 3, Image = "images/ciberseguridad.jpg" },
+                new Subject { SubjectId = Guid.NewGuid().ToString(), Name = "Control de Versiones y Herramientas de Colaboración", Description = "Control de Versiones y Herramientas de Colaboración", Credits = 3, Image = "images/contol-de-versiones-herramientas.jpg" }
             };
 
             modelBuilder.Entity<Subject>().HasData(subjects);
